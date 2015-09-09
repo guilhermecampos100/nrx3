@@ -224,7 +224,7 @@ app.factory('AboutData', function()
 			if ($rootScope.tokenGlobal == '66666')
 				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
 
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
     });
     
@@ -288,7 +288,7 @@ app.factory('AboutData', function()
 			if ($rootScope.tokenGlobal == '66666')
 				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
 
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
     });
 	
@@ -325,7 +325,7 @@ app.factory('AboutData', function()
 			if ($rootScope.tokenGlobal == '66666')
 				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
 
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 	}
     });
 
