@@ -196,7 +196,7 @@ app.factory('AboutData', function()
         $scope.showDetail = function(index) {
 			var secaoPai = $scope.secoes[index];
 			if (secaoPai.tipo == 'secao')
-				$scope.MeuNavigator.pushPage('Secoes.html', {secaoPai: secaoPai, animation: 'slide'});
+				$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});
 			else
 				$scope.MeuNavigator.pushPage('itens.html', {secaoPai: secaoPai, animation: 'slide'});
 
@@ -205,7 +205,7 @@ app.factory('AboutData', function()
 		 
 		$scope.VoltaTopo = function(index) {
 			var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-			$scope.MeuNavigator.pushPage('Secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
     });
     
@@ -258,13 +258,13 @@ app.factory('AboutData', function()
 		
         $scope.showDetail = function(index) {
 			var secaoPai = $scope.secoes[index];
-			$scope.MeuNavigator.pushPage('Secoes.html', {secaoPai: $scope.secaoPai, animation: 'slide'});
+			$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: $scope.secaoPai, animation: 'slide'});
 	
         }
 		 
 		$scope.VoltaTopo = function(index) {
 			var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-			$scope.MeuNavigator.pushPage('Secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
 		}
     });
 	
@@ -291,13 +291,13 @@ app.factory('AboutData', function()
 		
 	$scope.showDetail = function(index) {
 		var secaoPai = $scope.secoes[index];
-		$scope.MeuNavigator.pushPage('Secoes.html', {secaoPai: secaoPai, animation: 'slide'});
+		$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});
 
 	}
 	 
 	$scope.VoltaTopo = function(index) {
 		var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-		$scope.MeuNavigator.pushPage('Secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+		$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 	}
     });
 
