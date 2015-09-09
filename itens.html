@@ -1,0 +1,138 @@
+<ons-page ng-controller="ItensController">
+    
+    <ons-toolbar>
+    <div class="left"><ons-back-button>Voltar</ons-back-button></div>
+    <div class="center">{{secaoPai.descricao}}</div>
+	<div class="right"><ons-toolbar-button ng-click="VoltaTopo()">
+	<ons-icon icon="fa-home"></ons-toolbar-button></div>
+	</ons-toolbar>
+	
+<style>
+
+#tituloitem
+{
+    background-color: white;
+    line-height: normal; 
+    padding-bottom: 10px   !important;
+    padding-top: 10px;
+}
+
+
+</style>
+	
+	
+	
+	<ons-list >
+	
+	<ons-list-item id="tituloitem">
+		<ons-row>
+			<ons-col>
+			   <b>{{secaoPai.descricao}}</b>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-header>Conformidade</ons-list-header>
+	
+	    <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="sim" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Sim
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="nao" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Não
+          </label>
+        </ons-list-item>
+	
+	
+	      <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="nao se aplica" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Não se Aplica
+          </label>
+        </ons-list-item>
+		
+		
+<!-- 	<ons-list-item ng-click="acao('sim')>" style="background-color: green; color:white;">
+		<ons-row>
+			<ons-col>
+			    Sim
+			</ons-col>					r	
+		</ons-row>
+	</ons-list-item>
+	
+		<ons-list-item ng-click="acao('nao')>" style="background-color: red; color:white;">
+		<ons-row>
+			<ons-col>
+			    Não
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+		<ons-list-item ng-click="acao('naoseaplica')>" style="background-color: lightblue; color:black;">
+		<ons-row>
+			<ons-col>
+			    Não se aplica
+			</ons-col>						
+		</ons-row>
+	</ons-list-item> -->
+
+	<ons-list-header>Ações</ons-list-header>
+	
+		<ons-list-item ng-click="acao('fotos')">
+		<ons-row>
+			<ons-col width=11%>
+			    <ons-icon
+					  icon="fa-camera"
+					  size="20px"
+					  fixed-width="false"
+					  style="color: black">
+					</ons-icon>
+			</ons-col>
+			<ons-col width=89%>
+					Registrar fotos
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-item ng-click="acao('gps')">
+		<ons-row>
+			<ons-col width=11%>
+			      <ons-icon
+					  icon="fa-map-marker"
+					  size="20px"
+					  fixed-width="false"
+					  style="color: back">
+					</ons-icon>
+			</ons-col>
+			<ons-col width=89%>
+					Marcar Geolocalização (GPS)
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>	
+	
+	<ons-list-item ng-click="acao('observacao')">
+		<ons-row>
+			<ons-col width=11%>
+			 <ons-icon
+					  icon="fa-comment"
+					  size="20px"
+					  fixed-width="false"
+					  style="color: {{cor_icone_obs}}">
+			</ons-icon>
+			</ons-col>
+			<ons-col width=89%>
+			    Registrar Observação
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>		
+	
+</ons-page>
+
