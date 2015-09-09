@@ -142,7 +142,14 @@ app.factory('AboutData', function()
 		$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
 
 	
-
+	$scope.classelista = function(tipo) {
+		if (tipo == "secao")
+			return 'item lista_amarela ng-scope list__item ons-list-item-inner list__item--chevron';
+		else
+			return 'item item ng-scope list__item ons-list-item-inner list__item--chevron';
+		
+	}
+	
 	
 
 	
