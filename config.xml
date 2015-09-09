@@ -2,15 +2,15 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-		id="me.app.id" 
-		version="1.0.0">
+		id="nrx.app.id" 
+		version="1.0.3">
 
 	<gap:config-file platform="android" parent="/manifest">
      <application android:debuggable="true" />
 	</gap:config-file>
 	
 	
-    <name>NRX3 1.02</name>
+    <name>NRX3 1.03</name>
 	<icon src="icon.png" />
     <description>
     NRX3
