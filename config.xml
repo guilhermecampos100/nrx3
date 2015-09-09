@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.sensation" version="1.8.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>NRX3 1.0</name>
-	<icon src="iconazul.png" />
+    <name>NRX3 1.01</name>
+	<icon src="icon.png" />
     <description>
     NRX3
     </description>
