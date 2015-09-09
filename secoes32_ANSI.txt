@@ -1,0 +1,122 @@
+codigo	descricao
+32.1	DO OBJETIVO E CAMPO DE APLICAÇÃO
+32.2	DOS RISCOS BIOLÓGICOS
+32.2.2	Do Programa de Prevenção de Riscos Ambientais - PPRA
+32.2.2.3	Do Programa de Controle Médico de Saúde Ocupacional – PCMSO
+32.2.4	Das Medidas de Proteção
+32.2.4.5 	O empregador deve vedar:
+32.2.4.6	Todos trabalhadores com possibilidade de exposição a agentes biológicos devem utilizar vestimenta de trabalho adequada e em condições de conforto.
+32.2.4.7	Os Equipamentos de Proteção Individual - EPI, descartáveis ou não, deverão estar à disposição em número suficiente nos postos de trabalho, de forma que seja garantido o imediato fornecimento ou reposição.
+32.2.4.8 	O empregador deve:
+32.2.4.9 	O empregador deve assegurar capacitação aos trabalhadores, antes do início das atividades e de forma continuada, devendo ser ministrada:
+32.2.4.10 	Em todo local onde exista a possibilidade de exposição a agentes biológicos, devem ser fornecidas aos trabalhadores instruções escritas, em linguagem acessível, das rotinas realizadas no local de trabalho e medidas de prevenção de acidentes e de doenças relacionadas ao trabalho.
+32.2.4.11 	Os trabalhadores devem comunicar imediatamente todo acidente ou incidente, com possível exposição a agentes biológicos, ao responsável pelo local de trabalho e, quando houver, ao serviço de segurança e saúde do trabalho e à CIPA.
+32.2.4.12	O empregador deve informar, imediatamente, aos trabalhadores e aos seus representantes qualquer acidente ou incidente grave que possa provocar a disseminação de um agente biológico suscetível de causar doenças graves nos seres humanos, as suas causas e as medidas adotadas ou a serem adotadas para corrigir a situação.
+32.2.4.13	Os colchões, colchonetes e demais almofadados devem ser revestidos de material lavável e impermeável, permitindo desinfecção e fácil higienização.
+32.2.4.14	Os trabalhadores que utilizarem objetos perfurocortantes devem ser os responsáveis pelo seu descarte.
+32.2.4.15	São vedados o reencape e a desconexão manual de agulhas.
+32.2.4.16	Deve ser assegurado o uso de materiais perfurocortantes com dispositivo de segurança, conforme cronograma a ser estabelecido pela CTPN.
+32.2.4.17	Da Vacinação dos Trabalhadores
+32.3	DOS RISCOS QUÍMICOS
+32.3.4	Do Programa de Prevenção de Riscos Ambientais – PPRA
+32.3.5	Do Programa de Controle Médico de Saúde Ocupacional - PCMSO
+32.3.6	Cabe ao empregador:
+32.3.7	Das Medidas de Proteção
+32.3.7.1.3 	O local deve dispor, no mínimo, de:
+32.3.7.2 	A manipulação ou fracionamento dos produtos químicos deve ser feito por trabalhador qualificado.
+32.3.7.3	O transporte de produtos químicos deve ser realizado considerando os riscos à segurança e saúde do trabalhador e ao meio ambiente.
+32.3.7.4	Todos os estabelecimentos que realizam, ou que pretendem realizar, esterilização, reesterilização ou reprocessamento por gás óxido de etileno, deverão atender o disposto na Portaria Interministerial nº 482/MS/MTE de 16.04.1999.
+32.3.7.5	Nos locais onde se utilizam e armazenam produtos inflamáveis, o sistema de prevenção de incêndio deve prever medidas especiais de segurança e procedimentos de emergência
+32.3.7.6	As áreas de armazenamento de produtos químicos devem ser ventiladas e sinalizadas.
+32.3.8	DOS GASES MEDICINAIS
+32.3.8.2 	É vedado:
+32.3.8.3 	Os cilindros contendo gases inflamáveis, tais como hidrogênio e acetileno, devem ser armazenados a uma distância mínima de oito metros daqueles contendo gases oxidantes, tais como oxigênio e óxido nitroso, ou através de barreiras vedadas e resistentes ao fogo.
+32.3.8.4 	 Para o sistema centralizado de gases medicinais devem ser fixadas placas, em local visível, com caracteres indeléveis e legíveis, com as seguintes informações:
+32.3.9 	Dos Medicamentos e das Drogas de Risco
+32.3.9.1 	Para efeito desta NR, consideram-se medicamentos e drogas de risco aquelas que possam causar genotoxicidade, carcinogenicidade, teratogenicidade e toxicidade séria e seletiva sobre órgãos e sistemas.
+32.3.9.2 	Deve constar no PPRA a descrição dos riscos inerentes às atividades de recebimento, armazenamento, preparo, distribuição, administração dos medicamentos e das drogas de risco.
+32.3.9.3 	Dos Gases e Vapores Anestésicos
+32.3.9.4	Dos Quimioterápicos Antineoplásicos
+32.3.9.4.1 	Os quimioterápicos antineoplásicos somente devem ser preparados em área exclusiva e com acesso restrito aos profissionais diretamente envolvidos. A área deve dispor no mínimo de:
+32.3.9.4.2 	O vestiário deve dispor de:
+32.3.9.4.3 	Devem ser elaborados manuais de procedimentos relativos a limpeza, descontaminação e desinfecção de todas as áreas, incluindo superfícies, instalações, equipamentos, mobiliário, vestimentas, EPI e materiais.
+32.3.9.4.4 	Todos os profissionais diretamente envolvidos devem lavar adequadamente as mãos, antes e após a retirada das luvas.
+32.3.9.4.5	A sala de preparo deve ser dotada de Cabine de Segurança Biológica Classe II B2 e na sua instalação devem ser previstos, no mínimo:
+32.3.9.4.5.1	A cabine deve:
+32.3.9.4.6	Com relação aos quimioterápicos antineoplásicos, compete ao empregador:
+32.3.9.4.7	Além do cumprimento do disposto na legislação vigente, os Equipamentos de Proteção Individual - EPI devem atender as seguintes exigências:
+32.3.9.4.8 	Com relação aos quimioterápicos antineoplásicos é vedado
+32.3.9.4.9 	Dos Procedimentos Operacionais em Caso de Ocorrência de Acidentes Ambientais ou Pessoais.
+32.3.9.4.9.1 	Dos Procedimentos Operacionais em Caso de Ocorrência de Acidentes Ambientais ou Pessoais
+32.3.9.4.9.2 	As normas e os procedimentos, a serem adotados em caso de ocorrência de acidentes ambientais ou pessoais, devem constar em manual disponível e de fácil acesso aos trabalhadores e à fiscalização do trabalho.
+32.3.9.4.9.3 	Nas áreas de preparação, armazenamento e administração e para o transporte deve ser mantido um “Kit” de derramamento identificado e disponível, que deve conter, no mínimo: luvas de procedimento, avental impermeável, compressas absorventes, proteção respiratória, proteção ocular, sabão, recipiente identificado para recolhimento de resíduos e descrição do procedimento.
+32.3.10	Da Capacitação:
+32.3.10.1 	Os trabalhadores envolvidos devem receber capacitação inicial e continuada que contenha, no mínimo
+32.3.10.1.1 	A capacitação deve ser ministrada por profissionais de saúde familiarizados com os riscos inerentes aos quimioterápicos antineoplásicos.
+32.4	DAS RADIAÇÕES IONIZANTES
+32.4.1 	O atendimento das exigências desta NR, com relação às radiações ionizantes, não desobriga o empregador de observar as disposições estabelecidas pelas normas específicas da Comissão Nacional de Energia Nuclear - CNEN e da Agência Nacional de Vigilância Sanitária - ANVISA, do Ministério da Saúde.
+32.4.2 	É obrigatório manter no local de trabalho e à disposição da inspeção do trabalho o Plano de Proteção Radiológica - PPR, aprovado pela CNEN, e para os serviços de radiodiagnóstico aprovado pela Vigilância Sanitária
+32.4.2.1 	O Plano de Proteção Radiológica deve:
+32.4.3 	O trabalhador que realize atividades em áreas onde existam fontes de radiações ionizantes deve:
+32.4.4 	Toda trabalhadora com gravidez confirmada deve ser afastada das atividades com radiações ionizantes, devendo ser remanejada para atividade compatível com seu nível de formação.
+32.4.5 	Toda instalação radiativa deve dispor de monitoração individual e de áreas.
+32.4.5.1	Os dosímetros individuais devem ser obtidos, calibrados e avaliados exclusivamente em laboratórios de monitoração individual acreditados pela CNEN.
+32.4.5.2	A monitoração individual externa, de corpo inteiro ou de extremidades, deve ser feita através de dosimetria com periodicidade mensal e levando-se em conta a natureza e a intensidade das exposições normais e potenciais previstas.
+32.4.5.3	Na ocorrência ou suspeita de exposição acidental, os dosímetros devem ser encaminhados para leitura no prazo máximo de 24 horas.
+32.4.5.4	Após ocorrência ou suspeita de exposição acidental a fontes seladas, devem ser adotados procedimentos adicionais de monitoração individual, avaliação clínica e a realização de exames complementares, incluindo a dosimetria citogenética, a critério médico.
+32.4.5.5	Após ocorrência ou suspeita de acidentes com fontes não seladas, sujeitas a exposição externa ou com contaminação interna, devem ser adotados procedimentos adicionais de monitoração individual, avaliação clínica e a realização de exames complementares, incluindo a dosimetria citogenética, a análise in vivo e in vitro, a critério médico.
+32.4.5.6	Deve ser elaborado e implementado um programa de monitoração periódica de áreas, constante do Plano de Proteção Radiológica, para todas as áreas da instalação radiativa.
+32.4.6	Cabe ao empregador:
+32.4.7 	Cada trabalhador da instalação radiativa deve ter um registro individual atualizado, o qual deve ser conservado por 30 (trinta) anos após o término de sua ocupação, contendo as seguintes informações
+32.4.7.1 	 O registro individual dos trabalhadores deve ser mantido no local de trabalho e à disposição da inspeção do trabalho.
+32.4.8 	O prontuário clínico individual previsto pela NR-07 deve ser mantido atualizado e ser conservado por 30 (trinta) anos após o término de sua ocupação.
+32.4.9	Toda instalação radiativa deve possuir um serviço de proteção radiológica.
+32.4.9.1	O serviço de proteção radiológica deve estar localizado no mesmo ambiente da instalação radiativa e serem garantidas as condições de trabalho compatíveis com as atividades desenvolvidas, observando as normas da CNEN e da ANVISA.
+32.4.9.2	O serviço de proteção radiológica deve possuir, de acordo com o especificado no PPR, equipamentos para:
+32.4.9.3	O serviço de proteção radiológica deve estar diretamente subordinado ao Titular da instalação radiativa.
+32.4.9.4 	Quando o estabelecimento possuir mais de um serviço, deve ser indicado um responsável técnico para promover a integração das atividades de proteção radiológica destes serviços.
+32.4.10 	O médico coordenador do PCMSO ou o encarregado pelos exames médicos, previstos na NR-07, deve estar familiarizado com os efeitos e a terapêutica associados à exposição decorrente das atividades de rotina ou de acidentes com radiações ionizantes.
+32.4.11 	As áreas da instalação radiativa devem ser classificadas e ter controle de acesso definido pelo responsável pela proteção radiológica.
+32.4.12 	As áreas da instalação radiativa devem estar devidamente sinalizadas em conformidade com a legislação em vigor, em especial quanto aos seguintes aspectos:
+32.5	Dos Resíduos
+32.5.1 	Cabe ao empregador capacitar, inicialmente e de forma continuada, os trabalhadores nos seguintes assuntos:
+32.5.2 	Os sacos plásticos utilizados no acondicionamento dos resíduos de saúde devem atender ao disposto na NBR 9191 e ainda ser:
+32.5.3 	A segregação dos resíduos deve ser realizada no local onde são gerados, devendo ser observado que:
+32.5.3.1 	Os recipientes existentes nas salas de cirurgia e de parto não necessitam de tampa para vedação.
+32.5.3.2 	Para os recipientes destinados a coleta de material perfurocortante, o limite máximo de enchimento deve estar localizado 5 cm abaixo do bocal.
+32.5.3.2.1 	O recipiente para acondicionamento dos perfurocortantes deve ser mantido em suporte exclusivo e em altura que permita a visualização da abertura para descarte.
+32.5.4 	O transporte manual do recipiente de segregação deve ser realizado de forma que não exista o contato do mesmo com outras partes do corpo, sendo vedado o arrasto.
+32.5.5 	Sempre que o transporte do recipiente de segregação possa comprometer a segurança e a saúde do trabalhador, devem ser utilizados meios técnicos apropriados, de modo a preservar a sua saúde e integridade física.
+32.5.6 	A sala de armazenamento temporário dos recipientes de transporte é dotada de:
+32.5.7 	O transporte dos resíduos para a área de armazenamento externo deve atender aos seguintes requisitos:
+32.5.7.1 	Os recipientes de transporte com mais de 400 litros de capacidade devem possuir válvula de dreno no fundo.
+32.5.8 	Em todos os serviços de saúde deve existir local apropriado para o armazenamento externo dos resíduos, até que sejam recolhidos pelo sistema de coleta externa
+32.5.8.1 	 O local, além de atender às características descritas no item 32.5.6, deve ser dimensionado de forma a permitir a separação dos recipientes conforme o tipo de resíduo.
+32.5.9 	Os rejeitos radioativos devem ser tratados conforme disposto na Resolução CNEN NE-6.05.
+32.6 	Das Condições de Conforto por Ocasião das Refeições
+32.6.1 	Os refeitórios dos serviços de saúde devem atender ao disposto na NR-24.
+32.6.2 	Os estabelecimentos com até 300 trabalhadores devem ser dotados de locais para refeição, que atendam aos seguintes requisitos mínimos:
+32.6.3 	Os lavatórios para higiene das mãos devem ser providos de papel toalha, sabonete líquido e lixeira com tampa, de acionamento por pedal.
+32.7	Das Lavanderias
+32.7.1 	A lavanderia deve possuir duas áreas distintas, sendo uma considerada suja e outra limpa, devendo ocorrer na primeira o recebimento, classificação, pesagem e lavagem de roupas, e na segunda a manipulação das roupas lavadas.
+32.7.2 	Independente do porte da lavanderia, as máquinas de lavar devem ser de porta dupla ou de barreira, em que a roupa utilizada é inserida pela porta situada na área suja, por um operador e, após lavada, retirada na área limpa, por outro operador.
+32.7.2.1 	A comunicação entre as duas áreas somente é permitida por meio de visores ou intercomunicadores
+32.7.3 	A calandra deve ter:
+32.7.4 	As máquinas de lavar, centrífugas e secadoras devem ser dotadas de dispositivos eletromecânicos que interrompam seu funcionamento quando da abertura de seus compartimentos.
+32.8	Da Limpeza e Conservação
+32.8.1 	Os trabalhadores que realizam a limpeza dos serviços de saúde devem ser capacitados, inicialmente e de forma continuada, quanto aos princípios de higiene pessoal, risco biológico, risco químico, sinalização, rotulagem, EPI, EPC e procedimentos em situações de emergência.
+32.8.1.1 	A comprovação da capacitação deve ser mantida no local de trabalho, à disposição da inspeção do trabalho.
+32.8.2 	Para as atividades de limpeza e conservação, cabe ao empregador, no mínimo:
+32.8.3 	As empresas de limpeza e conservação que atuam nos serviços de saúde devem cumprir, no mínimo, o disposto nos itens 32.8.1 e 32.8.2.
+32.9	Da Manutenção de Máquinas e Equipamentos
+32.7	Das Lavanderias 
+32.8	Da Limpesa e Conservação
+32.9	Da Manutenção de Máquimas e Equipamentos 
+32.10	Das Disposições Gerais
+	
+	
+	
+	
+	
+	
+	

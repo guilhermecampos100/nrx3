@@ -86,18 +86,26 @@ var app = {
 		$scope.fazerLogin = function(token) {
 			$rootScope.tokenGlobal = token;
 			if(checkLogin(token)) {
-				openProtectedPage();
+				openProtectedPage(token);
 			}
 		}
 
-		function openProtectedPage() {
-			MeuNavigator.pushPage('secoes.html');    
+		function openProtectedPage(token) {
+			var secaoPai = {};
+			if (token == '55555')
+				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
+			if (token == '66666')
+				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
+			
+			$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});
+
+			
 		}
 
 		function checkLogin(token) {
 			//temporariry return true;
 			// please write your own logic to detect user login;
-			if (token == '55555')
+			if (token == '55555' || token == '66666')
 				return true;
 			else
 				return false;
@@ -211,8 +219,12 @@ app.factory('AboutData', function()
         }
 		 
 		$scope.VoltaTopo = function(index) {
-			var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+			if ($rootScope.tokenGlobal == '55555')
+				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
+			if ($rootScope.tokenGlobal == '66666')
+				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
+
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
 		}
     });
     
@@ -270,7 +282,12 @@ app.factory('AboutData', function()
         }
 		 
 		$scope.VoltaTopo = function(index) {
-			var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
+			
+			if ($rootScope.tokenGlobal == '55555')
+				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
+			if ($rootScope.tokenGlobal == '66666')
+				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
+
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
 		}
     });
@@ -303,8 +320,12 @@ app.factory('AboutData', function()
 	}
 	 
 	$scope.VoltaTopo = function(index) {
-		var secaoPai = {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-		$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+			if ($rootScope.tokenGlobal == '55555')
+				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
+			if ($rootScope.tokenGlobal == '66666')
+				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
+
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $scope.secaoPai, animation: 'slide'})
 	}
     });
 
