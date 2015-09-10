@@ -236,14 +236,12 @@ app.factory('AboutData', function()
 	$scope.secaoPai = page.options.secaoPai;
 	
 	$scope.cor_icone_obs = function(codigo) {
-		if ((localStorage.getItem(codigo)) == undefined)
-			return 'black';
-		if ((localStorage.getItem(codigo)) == 'sim')
-			return 'green';
-		if ((localStorage.getItem(codigo)) == 'nao')
-			return 'red';
-		if ((localStorage.getItem(codigo)) == 'nao se aplica')
-			return 'blue';		
+		var chave_observacao = $scope.secaoPai.codigo + "_obs";
+		if (localStorage.getItem(chave_observacao) != undefined)
+			$scope.cor_obs = "#1284ff";
+		else
+			$scope.cor_obs = "#000000";
+		return $scope.cor_obs;
 	};
 	
 	
@@ -253,12 +251,7 @@ app.factory('AboutData', function()
 	if ($scope.secaoPai == undefined)
 		$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
 
-	var chave_observacao = $scope.secaoPai.codigo + "_obs";
-	
-	if (localStorage.getItem(chave_observacao) != undefined)
-		$scope.cor_icone_obs = "#1284ff";
-	else
-		$scope.cor_icone_obs = "black";
+
 	
 
 		$scope.verificavalor = function() {
@@ -310,7 +303,6 @@ app.factory('AboutData', function()
 		
 		var tiroufoto = function( imgURI ) {
 			imageURI = imgURI;
-			alert( imageURI );
 			// resolve file system for image
 			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, pegueiFileSystem, deuerro);
 		}
@@ -359,7 +351,7 @@ app.factory('AboutData', function()
 				var root = fileSystem.root;
 				var nomearquivo;
 				nomearquivo = nomefoto;
-				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 
+				root.getFile(nomearquivo, {create: false}, leufoto, null); 
 			}, deuerro);
 		}
 
