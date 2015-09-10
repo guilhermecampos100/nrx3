@@ -296,6 +296,7 @@ app.factory('AboutData', function()
 		} 
 		
 		var tiroufoto = function( imageURI ) {
+			imageURI = imageURI;
 			alert( imageURI );
 			// resolve file system for image
 			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, pegueiFileSystem, deuerro);
