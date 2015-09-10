@@ -249,26 +249,16 @@ app.factory('AboutData', function()
 		$scope.cor_icone_obs = "black";
 	
 
-		function atualiza() {
-			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?pai=' + $scope.secaoPai.codigo + '&hora=' + Date.now();
-			$http({method: 'GET', url: urljson}).
-			success(function(data, status, headers, config) {
-				$scope.secoes = data.secoes;
-			}).
-			error(function(data, status, headers, config) {
-				alert('erro no json ' +  data);
-			});	
-		};
-
-		
 		$scope.verificavalor = function() {
-			localStorage.setItem($scope.secaoPai.codigo, $scope.conformidade);
-			
+			localStorage.setItem($scope.secaoPai.codigo, $scope.conformidade);	
 		}
 		
 		$scope.acao = function(acao) { 
 			if (acao == 'observacao') {
 				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, animation: 'slide'});	
+			}
+			else if (acao == 'fotos') {
+				$scope.tirafoto();
 			}
 			else
 				alert(acao);
@@ -290,6 +280,46 @@ app.factory('AboutData', function()
 
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
+		
+		var imageURI;
+		var fileSystem;
+		$scope.tirafoto =  function() {
+			navigator.camera.getPicture(tiroufoto, deuerro,
+			  {
+				quality: 50,
+				destinationType: Camera.DestinationType.FILE_URI,
+				encodingType: Camera.EncodingType.JPEG,
+				targetWidth: 800,
+				targetHeight: 600
+				
+			});
+		} 
+		
+		var tiroufoto = function( imageURI ) {
+			alert( imageURI );
+			// resolve file system for image
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, pegueiFileSystem, deuerro);
+		}
+			
+		function pegueiFileSystem(fileSystem) {
+			fileSystem = fileSystem;
+			window.resolveLocalFileSystemURL(imageURI, gotFileEntry, deuerro);
+		}
+				
+		function gotFileEntry(fileEntry) {
+			var nomearquivo = "foto_1.jpg";
+			fileEntry.copyTo(fileSystem.root, nomearquivo , fsSuccess, deuerro);
+		}
+
+		// file system fail
+		var fsSuccess = function(arquivo) {
+			alert("parece que gravou " + arquivo.name + " - " + arquivo.fullPath);
+		}
+		
+		var deuerro = function(error) {
+			alert("failed with error code: " + error.code);
+		};			
+
     });
 	
 	// Observacao Controller
