@@ -279,7 +279,6 @@ app.factory('AboutData', function()
 		
 		// REGISTRA GPS
 		$scope.registragps = function() {
-			navigator.geolocation.getCurrentPosition(leugps, deuerro);
 			var leugps = function(position) {
 				alert('Latitude: '          + position.coords.latitude          + '\n' +
 					  'Longitude: '         + position.coords.longitude         + '\n' +
@@ -291,10 +290,11 @@ app.factory('AboutData', function()
 					  'Timestamp: '         + position.timestamp                + '\n');
 				var chave_latitude = $scope.secaoPai.codigo + "_latitude";
 				var chave_longitude = $scope.secaoPai.codigo + "_longitude";
-			    window.localStorage.setItem(chave_latitude, position.coords.latitude  );
-			    window.localStorage.setItem(chave_longitude, position.coords.longitude  );
+				window.localStorage.setItem(chave_latitude, position.coords.latitude  );
+				window.localStorage.setItem(chave_longitude, position.coords.longitude  );
 				$scope.legps();
-			}				
+			}	
+			navigator.geolocation.getCurrentPosition(leugps, deuerro);
 		};
 	
 		// LE GPS
