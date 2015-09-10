@@ -319,15 +319,32 @@ app.factory('AboutData', function()
 			fs = fileSystem;
 			window.resolveLocalFileSystemURL(imageURI, gotFileEntry, deuerro);
 		}
-				
+			
+		function pegaNomeProximaFoto() {
+			// tenta a foto1.jpg, se tiver tenta a foto2 e se tiver retorna a foto3.jpg
+			var nomefoto = "";
+			nomefoto = $scope.pai.codigo + "_foto_1.jpg";
+			if ((localStorage.getItem(nomefoto)) == undefined)
+				return nomefoto;
+			
+			nomefoto = $scope.pai.codigo + "_foto_2.jpg";
+			if ((localStorage.getItem(nomefoto)) == undefined)
+				return nomefoto;
+			else {
+				nomefoto = $scope.pai.codigo + "_foto_3.jpg";
+				return nomefoto;
+			}
+		}
+			
 		function gotFileEntry(fileEntry) {
-			var nomearquivo = "foto_1.jpg";
+			var nomearquivo = pegaNomeProximaFoto();
 			fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
 
 		// file system fail
 		var fsSuccess = function(arquivo) {
-			alert("parece que gravou " + arquivo.name + " - " + arquivo.fullPath);
+			localStorage.setItem(arquivo.name, 'true');
+			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
 			lefotos();
 		}
 		
@@ -335,16 +352,14 @@ app.factory('AboutData', function()
 			alert("failed with error code: " + error.code);
 		};	
 
-		function lefotos() {
+		
+		
+		function lefotos(nomefoto) {
 			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
 				var root = fileSystem.root;
 				var nomearquivo;
-				nomearquivo = "foto_1.jpg";
+				nomearquivo = nomefoto;
 				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 
-				nomearquivo = "foto_2.jpg";
-				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 
-				nomearquivo = "foto_3.jpg";
-				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 			
 			}, deuerro);
 		}
 
@@ -363,7 +378,6 @@ app.factory('AboutData', function()
 						img = document.querySelector('#thirdImage');
 					}
 					img.src = evt.target.result;
-
 				};
 				reader.onerror = function(evt) {
 					alert('erro carregando o arquivo: ' + evt.target.error.code);
@@ -372,9 +386,15 @@ app.factory('AboutData', function()
 			}, deuerro);
 		}
 		
-		lefotos();
-	
+		var nomefoto = "";
+		nomefoto = $scope.pai.codigo + "_foto_1.jpg";
+		lefotos(nomefoto);
+		nomefoto = $scope.pai.codigo + "_foto_2.jpg";
+		lefotos(nomefoto);
+		nomefoto = $scope.pai.codigo + "_foto_3.jpg";
+		lefotos(nomefoto);
     });
+	
 	
 	// Observacao Controller
     app.controller('ObservacaoController', function($interval, $scope, $rootScope, $http) {
