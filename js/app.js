@@ -240,11 +240,11 @@ app.factory('AboutData', function()
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
 	
+	var chave_observacao = $scope.secaoPai.codigo + "_obs";
 	if (localStorage.getItem(chave_observacao) != undefined)
 		$scope.observacao = localStorage.getItem(chave_observacao);
 	
-	$scope.cor_icone_obs = function(codigo) {
-		var chave_observacao = $scope.secaoPai.codigo + "_obs";
+	$scope.cor_icone_obs = function() {
 		if (localStorage.getItem(chave_observacao) != undefined)
 			$scope.cor_obs = "#1284ff";
 		else
