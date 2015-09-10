@@ -247,6 +247,7 @@ app.factory('AboutData', function()
 		$scope.token = $rootScope.tokenGlobal;
 		var page = MeuNavigator.getCurrentPage();
 		$scope.secaoPai = page.options.secaoPai;
+		$scope.observacao = "";
 		
 		var chave_observacao = $scope.secaoPai.codigo + "_obs";
 		var chave_latitude = $scope.secaoPai.codigo + "_latitude";
@@ -261,7 +262,7 @@ app.factory('AboutData', function()
 		
 		// COR ICONE GPS
 		$scope.cor_icone_gps = function() {
-			if (localStorage.getItem('latitude') != undefined)
+			if (localStorage.getItem(chave_latitude) != undefined)
 				return "#1284ff";
 			else
 				return "#000000";
