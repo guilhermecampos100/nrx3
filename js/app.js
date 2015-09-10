@@ -282,7 +282,7 @@ app.factory('AboutData', function()
 		}
 		
 		var imageURI;
-		var fileSystem;
+		var fs;
 		$scope.tirafoto =  function() {
 			navigator.camera.getPicture(tiroufoto, deuerro,
 			  {
@@ -303,13 +303,13 @@ app.factory('AboutData', function()
 		}
 			
 		function pegueiFileSystem(fileSystem) {
-			fileSystem = fileSystem;
+			fs = fileSystem;
 			window.resolveLocalFileSystemURL(imageURI, gotFileEntry, deuerro);
 		}
 				
 		function gotFileEntry(fileEntry) {
 			var nomearquivo = "foto_1.jpg";
-			fileEntry.copyTo(fileSystem.root, nomearquivo , fsSuccess, deuerro);
+			fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
 
 		// file system fail
