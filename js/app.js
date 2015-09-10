@@ -323,15 +323,15 @@ app.factory('AboutData', function()
 		function pegaNomeProximaFoto() {
 			// tenta a foto1.jpg, se tiver tenta a foto2 e se tiver retorna a foto3.jpg
 			var nomefoto = "";
-			nomefoto = $scope.secaopai.codigo + "_foto_1.jpg";
+			nomefoto = $scope.secaoPai.codigo + "_foto_1.jpg";
 			if ((localStorage.getItem(nomefoto)) == undefined)
 				return nomefoto;
 			
-			nomefoto = $scope.secaopai.codigo + "_foto_2.jpg";
+			nomefoto = $scope.secaoPai.codigo + "_foto_2.jpg";
 			if ((localStorage.getItem(nomefoto)) == undefined)
 				return nomefoto;
 			else {
-				nomefoto = $scope.secaopai.codigo + "_foto_3.jpg";
+				nomefoto = $scope.secaoPai.codigo + "_foto_3.jpg";
 				return nomefoto;
 			}
 		}
@@ -387,11 +387,11 @@ app.factory('AboutData', function()
 		}
 		
 		var nomefoto = "";
-		nomefoto = $scope.secaopai.codigo + "_foto_1.jpg";
+		nomefoto = $scope.secaoPai.codigo + "_foto_1.jpg";
 		lefotos(nomefoto);
-		nomefoto = $scope.secaopai.codigo + "_foto_2.jpg";
+		nomefoto = $scope.secaoPai.codigo + "_foto_2.jpg";
 		lefotos(nomefoto);
-		nomefoto = $scope.secaopai.codigo + "_foto_3.jpg";
+		nomefoto = $scope.secaoPai.codigo + "_foto_3.jpg";
 		lefotos(nomefoto);
     });
 	
