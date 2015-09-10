@@ -345,7 +345,7 @@ app.factory('AboutData', function()
 		var fsSuccess = function(arquivo) {
 			localStorage.setItem(arquivo.name, 'true');
 			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
-			lefotos();
+			lefotos(arquivo.name);
 		}
 		
 		var deuerro = function(error) {
