@@ -175,8 +175,8 @@ app.factory('AboutData', function()
 	}
 	
 	$scope.tem_gps = function(codigo) {
-		var = codigo + "_latitude";
-		if (localStorage.getItem(chave_observacao) != undefined)
+		var chave_gps = codigo + "_latitude";
+		if (localStorage.getItem(chave_gps) != undefined)
 			return true;
 		else
 			return false;
