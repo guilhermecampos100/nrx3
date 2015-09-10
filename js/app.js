@@ -315,12 +315,52 @@ app.factory('AboutData', function()
 		// file system fail
 		var fsSuccess = function(arquivo) {
 			alert("parece que gravou " + arquivo.name + " - " + arquivo.fullPath);
+			lefotos();
 		}
 		
 		var deuerro = function(error) {
 			alert("failed with error code: " + error.code);
-		};			
+		};	
 
+		lefotos: function() {
+			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
+				var root = fileSystem.root;
+				var nomearquivo;
+				nomearquivo = "foto_1.jpg";
+				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 
+				nomearquivo = "foto_2.jpg";
+				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 
+				nomearquivo = "foto_3.jpg";
+				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 			
+		}, deuerro);
+
+		function leufoto(fileEntry) {
+			fileEntry.file(function(file) {
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					var img;
+					if (file.name.indexOf("foto_1.jpg") > -1) {
+						img = document.querySelector('#firstImage');
+					}
+					if (file.name.indexOf("foto_2.jpg") > -1) {
+						img = document.querySelector('#secondImage');
+					}
+					if (file.name.indexOf("foto_3.jpg") > -1) {
+						img = document.querySelector('#thirdImage');
+					}
+					img.src = evt.target.result;
+
+				};
+				reader.onerror = function(evt) {
+					alert('erro carregando o arquivo: ' + evt.target.error.code);
+				};
+				reader.readAsDataURL(file);
+			}, deuerro);
+		}
+		
+		lefotos();
+		
+		
     });
 	
 	// Observacao Controller
