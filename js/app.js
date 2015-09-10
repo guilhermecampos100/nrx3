@@ -236,7 +236,7 @@ app.factory('AboutData', function()
 	
 	// Itens Controller *********************************
     app.controller('ItensController', function($interval, $scope, $rootScope, $http) {
-		$scope.token = $rootScope.tokenGlobal
+		$scope.token = $rootScope.tokenGlobal;
 		var page = MeuNavigator.getCurrentPage();
 		$scope.secaoPai = page.options.secaoPai;
 		
@@ -249,7 +249,7 @@ app.factory('AboutData', function()
 			if (localStorage.getItem('latitude') != undefined)
 				return "#1284ff";
 			else
-				return = "#000000";
+				return "#000000";
 		};
 		
 		// COR ICONE OBSERVACAO
