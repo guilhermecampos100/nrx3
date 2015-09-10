@@ -140,7 +140,7 @@ app.factory('AboutData', function()
 	});
 
 	
-    // Secoes Controller ****************************************
+    // SECOES Controller ****************************************
     app.controller('SecoesController', function($interval, $scope, $rootScope, $http, SecoesData) {
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
@@ -168,6 +168,14 @@ app.factory('AboutData', function()
 
 	$scope.tem_obs = function(codigo) {
 		var chave_observacao = codigo + "_obs";
+		if (localStorage.getItem(chave_observacao) != undefined)
+			return true;
+		else
+			return false;
+	}
+	
+	$scope.tem_gps = function(codigo) {
+		var = codigo + "_latitude";
 		if (localStorage.getItem(chave_observacao) != undefined)
 			return true;
 		else
@@ -241,6 +249,13 @@ app.factory('AboutData', function()
 		$scope.secaoPai = page.options.secaoPai;
 		
 		var chave_observacao = $scope.secaoPai.codigo + "_obs";
+		var chave_latitude = $scope.secaoPai.codigo + "_latitude";
+		var chave_longitude = $scope.secaoPai.codigo + "_longitude";
+		var	nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
+		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
+		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
+			
+			
 		if (localStorage.getItem(chave_observacao) != undefined)
 			$scope.observacao = localStorage.getItem(chave_observacao);
 		
@@ -299,11 +314,10 @@ app.factory('AboutData', function()
 	
 		// LE GPS
 		$scope.legps = function() {
-			var chave_latitude = $scope.secaoPai.codigo + "_latitude";
-			var chave_longitude = $scope.secaoPai.codigo + "_longitude";
 			$scope.latitude = window.localStorage.getItem(chave_latitude);
 			$scope.longitude = window.localStorage.getItem(chave_longitude);			
 		};	
+		
 		$scope.legps();
 
 		$scope.verificavalor = function() {
@@ -370,10 +384,8 @@ app.factory('AboutData', function()
 		}
 			
 		function  temfoto() {
-			nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
-			nomefoto2 = $scope.secaoPai.codigo + "_foto_1.jpg";
-			nomefoto3 = $scope.secaoPai.codigo + "_foto_1.jpg";
-			if (((localStorage.getItem(nomefoto)) != undefined) || ((localStorage.getItem(nomefoto)) != undefined) || ((localStorage.getItem(nomefoto)) != undefined))
+
+			if (((localStorage.getItem(nomefoto1)) != undefined) || ((localStorage.getItem(nomefoto2)) != undefined) || ((localStorage.getItem(nomefoto3)) != undefined))
 				return true;
 			else
 				return false;
@@ -382,16 +394,12 @@ app.factory('AboutData', function()
 		function pegaNomeProximaFoto() {
 			// tenta a foto1.jpg, se tiver tenta a foto2 e se tiver retorna a foto3.jpg
 			var nomefoto = "";
-			nomefoto = $scope.secaoPai.codigo + "_foto_1.jpg";
-			if ((localStorage.getItem(nomefoto)) == undefined)
-				return nomefoto;
-			
-			nomefoto = $scope.secaoPai.codigo + "_foto_2.jpg";
-			if ((localStorage.getItem(nomefoto)) == undefined)
-				return nomefoto;
+			if ((localStorage.getItem(nomefoto1)) == undefined)
+				return nomefoto1;
+			if ((localStorage.getItem(nomefoto2)) == undefined)
+				return nomefoto2;
 			else {
-				nomefoto = $scope.secaoPai.codigo + "_foto_3.jpg";
-				return nomefoto;
+				return nomefoto3;
 			}
 		}
 			
@@ -444,13 +452,10 @@ app.factory('AboutData', function()
 			}, deuerro);
 		}
 		
-		var nomefoto = "";
-		nomefoto = $scope.secaoPai.codigo + "_foto_1.jpg";
-		lefotos(nomefoto);
-		nomefoto = $scope.secaoPai.codigo + "_foto_2.jpg";
-		lefotos(nomefoto);
-		nomefoto = $scope.secaoPai.codigo + "_foto_3.jpg";
-		lefotos(nomefoto);
+
+		lefotos(nomefoto1);
+		lefotos(nomefoto2);
+		lefotos(nomefoto3);
     });
 	
 	
