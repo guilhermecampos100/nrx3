@@ -65,12 +65,9 @@
 		<ons-list-item modifier="tappable" ng-click="acao('fotos')">
 		<ons-row>
 			<ons-col width=11%>
-			    <ons-icon
-					  icon="fa-camera"
-					  size="20px"
-					  fixed-width="false"
-					  style="color: black">
-					</ons-icon>
+				<span style="color: {{cor_icone_foto()}}">
+			    <ons-icon icon="fa-camera" size="20px" fixed-width="false">	</ons-icon>
+				</span>
 			</ons-col>
 			<ons-col width=89%>
 					Registrar fotos
@@ -81,11 +78,7 @@
 	<ons-list-item modifier="tappable" ng-click="acao('gps')">
 		<ons-row>
 			<ons-col width=11%>
-			      <ons-icon
-					  icon="fa-map-marker"
-					  size="20px"
-					  fixed-width="false"
-					  style="color: back">
+			       <ons-icon icon="fa-map-marker" size="20px" fixed-width="false"  style="color: back">
 					</ons-icon>
 			</ons-col>
 			<ons-col width=89%>
@@ -98,10 +91,7 @@
 		<ons-row>
 			<ons-col width=11%>
 			 <span style="color: {{cor_icone_obs()}}">
-			 <ons-icon
-					  icon="fa-comment"
-					  size="20px"
-					  fixed-width="false" >
+			 <ons-icon icon="fa-comment"  size="20px" fixed-width="false" >
 			</ons-icon>
 			</span>
 			</ons-col>
@@ -113,11 +103,12 @@
 
 		<ons-list-item modifier="tappable" ng-click="acao('observacao')">
 		<ons-row>
+			<div>{{$scope.observacao}}</div>
 			<div id="divfinal"></div>
-				<img id="firstImage" src="" width="100%" ><br>
-				<img id="secondImage" src="" width="100%" ><br>
-				<img id="thirdImage"  src=""  width="100%" ><br>
-				<img id="forthImage"  src=""  width="100%" ><br>
+				<img id="firstImage" src="" width="49%" >
+				<img id="secondImage" src="" width="49%" ><br>
+				<img id="thirdImage"  src=""  width="49%" >
+				<img id="forthImage"  src=""  width="49%" >
 			</div>	
 		</ons-row>
 		</ons-list-item>

@@ -140,7 +140,7 @@ app.factory('AboutData', function()
 	});
 
 	
-    // Secoes Controller
+    // Secoes Controller ****************************************
     app.controller('SecoesController', function($interval, $scope, $rootScope, $http, SecoesData) {
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
@@ -149,18 +149,23 @@ app.factory('AboutData', function()
 	if ($scope.secaoPai == undefined)
 		$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
 
-	
 	$scope.classelista = function(tipo) {
 		if (tipo == "secao")
 			return 'item lista_amarela ng-scope list__item ons-list-item-inner list__item--chevron';
 		else
 			return 'item item ng-scope list__item ons-list-item-inner list__item--chevron';
-		
 	}
-	
-	
+		
+	$scope.tem_foto = function(codigo) {
+		nomefoto1 = codigo + "_foto_1.jpg";
+		nomefoto2 = codigo + "_foto_2.jpg";
+		nomefoto3 = codigo + "_foto_3.jpg";
+		if (((localStorage.getItem(nomefoto1)) != undefined) || ((localStorage.getItem(nomefoto2)) != undefined) || ((localStorage.getItem(nomefoto3)) != undefined))
+			return true;
+		else
+			return false;
+	}	
 
-	
 	$scope.tem_obs = function(codigo) {
 		var chave_observacao = codigo + "_obs";
 		if (localStorage.getItem(chave_observacao) != undefined)
@@ -229,11 +234,14 @@ app.factory('AboutData', function()
     });
     
 	
-	// Itens Controller
+	// Itens Controller *********************************
     app.controller('ItensController', function($interval, $scope, $rootScope, $http) {
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
+	
+	if (localStorage.getItem(chave_observacao) != undefined)
+		$scope.observacao = localStorage.getItem(chave_observacao);
 	
 	$scope.cor_icone_obs = function(codigo) {
 		var chave_observacao = $scope.secaoPai.codigo + "_obs";
@@ -244,6 +252,12 @@ app.factory('AboutData', function()
 		return $scope.cor_obs;
 	};
 	
+	$scope.cor_icone_foto = function() {
+		if (temfoto())
+			return "#1284ff";
+		else
+			return "#000000";
+	};	
 	
 	if (localStorage.getItem($scope.secaoPai.codigo) != undefined)
 		$scope.conformidade = localStorage.getItem($scope.secaoPai.codigo);
@@ -310,6 +324,16 @@ app.factory('AboutData', function()
 		function pegueiFileSystem(fileSystem) {
 			fs = fileSystem;
 			window.resolveLocalFileSystemURL(imageURI, gotFileEntry, deuerro);
+		}
+			
+		function  temfoto() {
+			nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
+			nomefoto2 = $scope.secaoPai.codigo + "_foto_1.jpg";
+			nomefoto3 = $scope.secaoPai.codigo + "_foto_1.jpg";
+			if (((localStorage.getItem(nomefoto)) != undefined) || ((localStorage.getItem(nomefoto)) != undefined) || ((localStorage.getItem(nomefoto)) != undefined))
+				return true;
+			else
+				return false;
 		}
 			
 		function pegaNomeProximaFoto() {
@@ -405,7 +429,7 @@ app.factory('AboutData', function()
 
 	$scope.gravaobservacao = function() {
 		localStorage.setItem(chave_observacao, $scope.observacao);
-		//$scope.MeuNavigator.popPage();
+		$scope.MeuNavigator.popPage();
 	}
 
 		
