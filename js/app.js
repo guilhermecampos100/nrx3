@@ -317,6 +317,9 @@ app.factory('AboutData', function()
 			else if (acao == 'fotos') {
 				$scope.tirafoto();
 			}
+			else if (acao == 'gps') {
+				$scope.registragps();
+			}
 			else
 				alert(acao);
 		}
