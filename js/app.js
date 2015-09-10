@@ -236,37 +236,75 @@ app.factory('AboutData', function()
 	
 	// Itens Controller *********************************
     app.controller('ItensController', function($interval, $scope, $rootScope, $http) {
-	$scope.token = $rootScope.tokenGlobal
-	var page = MeuNavigator.getCurrentPage();
-	$scope.secaoPai = page.options.secaoPai;
-	
-	var chave_observacao = $scope.secaoPai.codigo + "_obs";
-	if (localStorage.getItem(chave_observacao) != undefined)
-		$scope.observacao = localStorage.getItem(chave_observacao);
-	
-	$scope.cor_icone_obs = function() {
+		$scope.token = $rootScope.tokenGlobal
+		var page = MeuNavigator.getCurrentPage();
+		$scope.secaoPai = page.options.secaoPai;
+		
+		var chave_observacao = $scope.secaoPai.codigo + "_obs";
 		if (localStorage.getItem(chave_observacao) != undefined)
-			$scope.cor_obs = "#1284ff";
-		else
-			$scope.cor_obs = "#000000";
-		return $scope.cor_obs;
-	};
-	
-	$scope.cor_icone_foto = function() {
-		if (temfoto())
-			return "#1284ff";
-		else
-			return "#000000";
-	};	
-	
-	if (localStorage.getItem($scope.secaoPai.codigo) != undefined)
-		$scope.conformidade = localStorage.getItem($scope.secaoPai.codigo);
+			$scope.observacao = localStorage.getItem(chave_observacao);
+		
+		// COR ICONE GPS
+		$scope.cor_icone_gps = function() {
+			if (localStorage.getItem('latitude') != undefined)
+				return "#1284ff";
+			else
+				return = "#000000";
+		};
+		
+		// COR ICONE OBSERVACAO
+		$scope.cor_icone_obs = function() {
+			if (localStorage.getItem(chave_observacao) != undefined)
+				$scope.cor_obs = "#1284ff";
+			else
+				$scope.cor_obs = "#000000";
+			return $scope.cor_obs;
+		};
+		
+		// COR ICONE FOTO
+		$scope.cor_icone_foto = function() {
+			if (temfoto())
+				return "#1284ff";
+			else
+				return "#000000";
+		};	
+		
+		// CONFORMIDADE
+		if (localStorage.getItem($scope.secaoPai.codigo) != undefined)
+			$scope.conformidade = localStorage.getItem($scope.secaoPai.codigo);
 
-	if ($scope.secaoPai == undefined)
-		$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
+		if ($scope.secaoPai == undefined)
+			$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
 
-
+		
+		// REGISTRA GPS
+		$scope.registragps = function() {
+			navigator.geolocation.getCurrentPosition(leugps, deuerro);
+			var leugps = function(position) {
+				alert('Latitude: '          + position.coords.latitude          + '\n' +
+					  'Longitude: '         + position.coords.longitude         + '\n' +
+					  'Altitude: '          + position.coords.altitude          + '\n' +
+					  'Accuracy: '          + position.coords.accuracy          + '\n' +
+					  'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+					  'Heading: '           + position.coords.heading           + '\n' +
+					  'Speed: '             + position.coords.speed             + '\n' +
+					  'Timestamp: '         + position.timestamp                + '\n');
+				var chave_latitude = $scope.secaoPai.codigo + "_latitude";
+				var chave_longitude = $scope.secaoPai.codigo + "_longitude";
+			    window.localStorage.setItem(chave_latitude, position.coords.latitude  );
+			    window.localStorage.setItem(chave_longitude, position.coords.longitude  );
+				$scope.legps();
+			}				
+		};
 	
+		// LE GPS
+		$scope.legps = function() {
+			var chave_latitude = $scope.secaoPai.codigo + "_latitude";
+			var chave_longitude = $scope.secaoPai.codigo + "_longitude";
+			var $scope.latitude = window.localStorage.getItem(chave_latitude);
+			var $scope.longitude = window.localStorage.getItem(chave_longitude);			
+		};	
+		$scope.legps();
 
 		$scope.verificavalor = function() {
 			localStorage.setItem($scope.secaoPai.codigo, $scope.conformidade);	
@@ -300,6 +338,8 @@ app.factory('AboutData', function()
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
 		
+		
+		// TIRA FOTO
 		var imageURI;
 		var fs;
 		$scope.tirafoto =  function() {
@@ -357,7 +397,6 @@ app.factory('AboutData', function()
 			fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
 
-		// file system fail
 		var fsSuccess = function(arquivo) {
 			localStorage.setItem(arquivo.name, 'true');
 			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
@@ -365,11 +404,11 @@ app.factory('AboutData', function()
 		}
 		
 		var deuerro = function(error) {
-			alert("failed with error code: " + error.code);
+			alert("Erro código: " + error.code);
 		};	
 
 		
-		
+		// LE FOTOS
 		function lefotos(nomefoto) {
 			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
 				var root = fileSystem.root;
