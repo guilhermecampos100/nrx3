@@ -347,7 +347,7 @@ app.factory('AboutData', function()
 			}, deuerro);
 		}
 
-		function leufoto(fileEntry) {
+		var leufoto = function(fileEntry) {
 			fileEntry.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
