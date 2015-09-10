@@ -235,7 +235,7 @@ app.factory('AboutData', function()
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
 	
-	$scope.coricone = function(codigo) {
+	$scope.cor_icone_obs = function(codigo) {
 		if ((localStorage.getItem(codigo)) == undefined)
 			return 'black';
 		if ((localStorage.getItem(codigo)) == 'sim')
