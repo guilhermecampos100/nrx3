@@ -339,11 +339,11 @@ app.factory('AboutData', function()
 				var root = fileSystem.root;
 				var nomearquivo;
 				nomearquivo = "foto_1.jpg";
-				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 
+				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 
 				nomearquivo = "foto_2.jpg";
-				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 
+				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 
 				nomearquivo = "foto_3.jpg";
-				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 			
+				root.getFile(nomearquivo, {create: false}, leufoto, deuerro); 			
 			}, deuerro);
 		}
 
