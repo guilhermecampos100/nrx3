@@ -301,8 +301,8 @@ app.factory('AboutData', function()
 		$scope.legps = function() {
 			var chave_latitude = $scope.secaoPai.codigo + "_latitude";
 			var chave_longitude = $scope.secaoPai.codigo + "_longitude";
-			var $scope.latitude = window.localStorage.getItem(chave_latitude);
-			var $scope.longitude = window.localStorage.getItem(chave_longitude);			
+			$scope.latitude = window.localStorage.getItem(chave_latitude);
+			$scope.longitude = window.localStorage.getItem(chave_longitude);			
 		};	
 		$scope.legps();
 
