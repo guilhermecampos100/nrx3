@@ -235,6 +235,18 @@ app.factory('AboutData', function()
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
 	
+	$scope.coricone = function(codigo) {
+		if ((localStorage.getItem(codigo)) == undefined)
+			return 'black';
+		if ((localStorage.getItem(codigo)) == 'sim')
+			return 'green';
+		if ((localStorage.getItem(codigo)) == 'nao')
+			return 'red';
+		if ((localStorage.getItem(codigo)) == 'nao se aplica')
+			return 'blue';		
+	};
+	
+	
 	if (localStorage.getItem($scope.secaoPai.codigo) != undefined)
 		$scope.conformidade = localStorage.getItem($scope.secaoPai.codigo);
 
@@ -322,7 +334,7 @@ app.factory('AboutData', function()
 			alert("failed with error code: " + error.code);
 		};	
 
-		lefotos: function() {
+		function lefotos() {
 			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
 				var root = fileSystem.root;
 				var nomearquivo;
