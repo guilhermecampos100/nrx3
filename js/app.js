@@ -332,7 +332,8 @@ app.factory('AboutData', function()
 				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 
 				nomearquivo = "foto_3.jpg";
 				root.getFile(nomearquivo, {create: false}, leufoto, gfFail); 			
-		}, deuerro);
+			}, deuerro);
+		}
 
 		function leufoto(fileEntry) {
 			fileEntry.file(function(file) {
@@ -359,8 +360,7 @@ app.factory('AboutData', function()
 		}
 		
 		lefotos();
-		
-		
+	
     });
 	
 	// Observacao Controller
