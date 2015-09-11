@@ -366,10 +366,9 @@ app.factory('AboutData', function()
 				quality: 50,
 				destinationType: Camera.DestinationType.FILE_URI,
 				encodingType: Camera.EncodingType.JPEG,
-				targetWidth: 800,
-				targetHeight: 600,
+				targetWidth: 1024,
 				correctOrientation: true
-				
+
 			});
 		} 
 		
