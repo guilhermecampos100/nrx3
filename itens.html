@@ -102,10 +102,12 @@
 		</ons-row>
 	</ons-list-item>	
 
+		<ons-list-header>Conteúdo</ons-list-header>
+		
 		<ons-list-item modifier="tappable" ng-click="acao('observacao')">
 		<ons-row>
-			<div ng-show="latitude != undefined">Lat: {{latitude}} Lon: {{longitude}}</div>
-			<div>{{$scope.observacao}}</div>
+			<div ng-show="latitude != undefined">Lat: {{latitude}} Lon: {{longitude}}<br></div>
+			<div>Obs: {{txtobservacao}}<br></div>
 			<div id="divfinal"></div>
 				<img id="firstImage" src="" width="49%" >
 				<img id="secondImage" src="" width="49%" ><br>
