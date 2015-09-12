@@ -257,8 +257,10 @@ app.factory('AboutData', function()
 		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
 			
 			
-		if (localStorage.getItem(chave_observacao) != undefined)
+		if (localStorage.getItem(chave_observacao) != undefined) {
 			$scope.txtobservacao = localStorage.getItem(chave_observacao);
+			$scope.$apply();
+		}
 		
 		// COR ICONE GPS
 		$scope.cor_icone_gps = function() {
