@@ -108,21 +108,21 @@
 		<ons-list-item modifier="tappable" ng-click="acao('gps')" ng-show="latitude != undefined">
 		<ons-row>
 			<ons-col>
-			<div ng-show="latitude != undefined">Lat: {{latitude}} Lon: {{longitude}}<br></div>
+			<div style="line-height: normal; "><h3>Geolocalização</h3>>Lat: {{latitude}} Lon: {{longitude}}<br></div>
 			</ons-col>
     	</ons-row>   
 		</ons-list-item>
 
 	
-		<section style="padding: 10px;" ng-show="txtobservacao != undefined">
-		<ons-list-item modifier="tappable" ng-click="acao('observacao')">
+
+		<ons-list-item modifier="tappable" ng-click="acao('observacao')" ng-show="txtobservacao != undefined" style="padding: 10px;">
 		<ons-row>
 			<ons-col>
 			<div style="line-height: normal; "><h3>Observação</h3> {{txtobservacao}}<br></div>
 			</ons-col>
     	</ons-row>   
 		</ons-list-item>
-		</section>
+
 
 		<!--FOTOS -->
 		<section style="padding: 10px;">
