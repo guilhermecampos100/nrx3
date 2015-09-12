@@ -429,11 +429,10 @@ app.factory('AboutData', function()
 			}, deuerro);
 		}
 
-		$scope.fotos = {};
+		$scope.fotos = [];
 		
 		var leufoto = function(fileEntry) {
 			
-			var foto = ;
 			var foto = {url: fileEntry.fullPath ,observacao:"teste observacao"};
 			$scope.fotos.push(foto);
 					
