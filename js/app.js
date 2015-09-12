@@ -432,6 +432,12 @@ app.factory('AboutData', function()
 		$scope.fotos = {};
 		
 		var leufoto = function(fileEntry) {
+			
+			var foto = ;
+			var foto = {url: fileEntry.fullPath ,observacao:"teste observacao"};
+			$scope.fotos.push(foto);
+					
+					
 			fileEntry.file(function(file) {
 				var reader = new FileReader();
 				reader.onload = function(evt) {
@@ -447,9 +453,7 @@ app.factory('AboutData', function()
 					}
 					img.src = evt.target.result;
 					
-					var foto = ;
-					var foto = {url: evt.target.result ,observacao:"teste observacao"};
-					$scope.fotos.push(foto);
+
 					
 				};
 				reader.onerror = function(evt) {
