@@ -114,8 +114,31 @@
 				<img id="thirdImage"  src=""  width="49%" >
 				<img id="forthImage"  src=""  width="49%" >
 			</div>	
-		</ons-row>
+		</ons-row>   
 		</ons-list-item>
+		
+		<!--FOTOS -->
+		<section style="padding: 10px;">
+        <div ng-repeat="foto in fotos">
+        <ons-row style="padding: 0 0 10px 0;">
+            <ons-col>
+                <section style="padding: 0 10px 0 0;">
+                <img ng-src="{{foto.url}}" alt="{{foto.observacao}}" ng-click="showDetail($index)"/>
+                </section>
+            </ons-col>
+            <ons-col>
+                <section>
+                <h3 class="title" ng-click="showDetail($index)">Foto {{$index}}</h3>
+                <p ng-model="letterLimit">{{foto.observacao | limitTo:letterLimit  }}...</p>
+                </section>
+            </ons-col>
+        </ons-row>
+        </div>
+    </section>
+
+		
+		
+		
 		
 </ons-page>
 

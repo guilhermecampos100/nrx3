@@ -429,6 +429,8 @@ app.factory('AboutData', function()
 			}, deuerro);
 		}
 
+		$scope.fotos = {};
+		
 		var leufoto = function(fileEntry) {
 			fileEntry.file(function(file) {
 				var reader = new FileReader();
@@ -444,6 +446,11 @@ app.factory('AboutData', function()
 						img = document.querySelector('#thirdImage');
 					}
 					img.src = evt.target.result;
+					
+					var foto = {};
+					foto = '{"url":"' + evt.target.result + ',"observacao":"teste observacao"}';
+					fotos.push(foto);
+					
 				};
 				reader.onerror = function(evt) {
 					alert('erro carregando o arquivo: ' + evt.target.error.code);
