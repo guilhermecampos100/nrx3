@@ -434,7 +434,7 @@ app.factory('AboutData', function()
 		
 		var leufoto = function(fileEntry) {
 			
-			var foto = {url: fileEntry.fullPath ,observacao:"teste observacao"};
+			var foto = {url: fileEntry.toURI ,observacao:"teste observacao"};
 			$scope.fotos.push(foto);
 			$scope.$apply();
 					
