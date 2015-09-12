@@ -449,7 +449,7 @@ app.factory('AboutData', function()
 					
 					var foto = {};
 					foto = '{"url":"' + evt.target.result + ',"observacao":"teste observacao"}';
-					fotos.push(foto);
+					$scope.fotos.push(foto);
 					
 				};
 				reader.onerror = function(evt) {
