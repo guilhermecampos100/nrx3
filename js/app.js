@@ -316,7 +316,8 @@ app.factory('AboutData', function()
 		// LE GPS
 		$scope.legps = function() {
 			$scope.latitude = window.localStorage.getItem(chave_latitude);
-			$scope.longitude = window.localStorage.getItem(chave_longitude);			
+			$scope.longitude = window.localStorage.getItem(chave_longitude);	
+			$scope.$apply();			
 		};	
 		
 		$scope.legps();
@@ -435,6 +436,7 @@ app.factory('AboutData', function()
 			
 			var foto = {url: fileEntry.fullPath ,observacao:"teste observacao"};
 			$scope.fotos.push(foto);
+			$scope.$apply();
 					
 					
 			fileEntry.file(function(file) {
