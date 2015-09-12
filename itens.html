@@ -130,13 +130,33 @@
                 <section>
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index}}</h3>
                 <p ng-model="letterLimit">{{foto.observacao | limitTo:letterLimit  }}...</p>
+				<p >fotoobs: {{foto.observacao}}</p>
                 </section>
             </ons-col>
         </ons-row>
         </div>
     </section>
 
-		
+
+		<!--FOTOS TESTE-->
+		<section style="padding: 10px;">
+        <div >
+        <ons-row style="padding: 0 0 10px 0;">
+            <ons-col>
+                <section style="padding: 0 10px 0 0;">
+                <img src="//32.1.1_foto1.jpb" alt="teste alt" >
+                </section>
+            </ons-col>
+            <ons-col>
+                <section>
+                <h3 class="title">Foto 1</h3>
+				<p >Observacao teste</p>
+                </section>
+            </ons-col>
+        </ons-row>
+        </div>
+    </section>
+	
 		
 		
 		
