@@ -104,19 +104,22 @@
 
 		<ons-list-header>Conteúdo</ons-list-header>
 		
-		<ons-list-item modifier="tappable" ng-click="acao('observacao')">
+		<section style="padding: 10px;" ng-show="latitude != undefined">
+		<ons-list-item modifier="tappable" ng-click="acao('gps')">
 		<ons-row>
 			<div ng-show="latitude != undefined">Lat: {{latitude}} Lon: {{longitude}}<br></div>
-			<div>Obs: {{txtobservacao}}<br></div>
-			<div id="divfinal"></div>
-				<img id="firstImage" src="" width="49%" >
-				<img id="secondImage" src="" width="49%" ><br>
-				<img id="thirdImage"  src=""  width="49%" >
-				<img id="forthImage"  src=""  width="49%" >
-			</div>	
-		</ons-row>   
+    	</ons-row>   
 		</ons-list-item>
-		
+		</section>
+	
+		<section style="padding: 10px;" ng-show="observacao != undefined">
+		<ons-list-item modifier="tappable" ng-click="acao('observacao')">
+		<ons-row>
+			<div><h3>Observação</h3> {{txtobservacao}}<br></div>
+    	</ons-row>   
+		</ons-list-item>
+		</section>
+
 		<!--FOTOS -->
 		<section style="padding: 10px;">
         <div ng-repeat="foto in fotos">
@@ -128,8 +131,7 @@
             </ons-col>
             <ons-col>
                 <section>
-                <h3 class="title" ng-click="showDetail($index)">Foto {{$index}}</h3>
-                <p ng-model="letterLimit">{{foto.observacao | limitTo:letterLimit  }}...</p>
+                <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
 				<p >fotoobs: {{foto.observacao}}</p>
                 </section>
             </ons-col>
@@ -138,31 +140,6 @@
     </section>
 
 
-		<!--FOTOS TESTE-->
-		<section style="padding: 10px;">
-        <div >
-        <ons-row style="padding: 0 0 10px 0;">
-            <ons-col>
-                <section style="padding: 0 10px 0 0;">
-                1<img src="file:///storage/emulated/0/32.1.1_foto_1.jpg" alt="teste alt" ><br>
-				2<img src="///storage/emulated/0/32.1.1_foto_1.jpg" alt="teste alt" ><br>
-				3<img src="//storage/emulated/0/32.1.1_foto_1.jpg" alt="teste alt" ><br>
-				4<img src="/storage/emulated/0/32.1.1_foto_1.jpg" alt="teste alt" ><br>
-				5<img src="storage/emulated/0/32.1.1_foto_1.jpg" alt="teste alt" ><br>
-                </section>
-            </ons-col>
-            <ons-col>
-                <section>
-                <h3 class="title">Foto 1</h3>
-				<p >Observacao teste</p>
-                </section>
-            </ons-col>
-        </ons-row>
-        </div>
-    </section>
-	
-		
-		
 		
 </ons-page>
 
