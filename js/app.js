@@ -447,8 +447,8 @@ app.factory('AboutData', function()
 					}
 					img.src = evt.target.result;
 					
-					var foto = {};
-					foto = '{"url":"' + evt.target.result + ',"observacao":"teste observacao"}';
+					var foto = ;
+					var foto = {url: evt.target.result ,observacao:"teste observacao"};
 					$scope.fotos.push(foto);
 					
 				};
