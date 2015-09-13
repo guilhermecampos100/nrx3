@@ -538,7 +538,6 @@ app.factory('AboutData', function()
 		$scope.MeuNavigator.popPage({onTransitionEnd : function() {
 			$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'none' } )
 		}});
-		
 	}
 
 		
