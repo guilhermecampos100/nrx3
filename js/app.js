@@ -520,7 +520,7 @@ app.factory('AboutData', function()
 	else
 		chave_observacao = $scope.secaoPai.codigo + $scope.sufixo;
 	
-	if (localStorage.getItem(chave_observacao) != undefined)
+	if (localStorage.getItem(chave_observacao) == undefined)
 		$scope.observacao = localStorage.getItem(chave_observacao);
 	
 	
