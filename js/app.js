@@ -281,7 +281,7 @@ app.factory('AboutData', function()
 				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo, animation: 'slide'});	
 			}
 			else if (acao == 'fotos') {
-				$scope.tirafoto();
+				$scope.tirafoto(0);
 			}
 			else if (acao == 'gps') {
 				$scope.registragps();
