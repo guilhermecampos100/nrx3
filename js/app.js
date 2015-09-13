@@ -278,7 +278,7 @@ app.factory('AboutData', function()
 					var suf = '_obs_foto_' + codigo;
 					var url = $scope.fotos[codigo - 1].url;
 				}
-				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo - 1, animation: 'slide'});	
+				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo, animation: 'slide'});	
 			}
 			else if (acao == 'fotos') {
 				$scope.tirafoto();

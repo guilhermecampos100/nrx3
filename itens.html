@@ -106,10 +106,10 @@
 		<ons-list-header>Conteúdo</ons-list-header>
 		
 
-		<ons-list-item modifier="tappable" ng-click="acao('gps','')" ng-show="latitude != undefined" style="padding: 20 px 20px;">
+		<ons-list-item modifier="tappable" ng-click="acao('gps','')" ng-show="latitude != undefined" style="padding: 20px;">
 		<ons-row>
 			<ons-col>
-			<div style="line-height: normal; "><ons-icon icon="fa-map-marker" ></ons-icon> Lat: {{latitude}} Lon: {{longitude}}<br></div>
+			<div style="line-height: normal; "><ons-icon icon="fa-map-marker" style="font-size=10px; color=#1284ff;"></ons-icon> Lat: {{latitude}} Lon: {{longitude}}<br></div>
 			</ons-col>
     	</ons-row>   
 		</ons-list-item>
@@ -119,7 +119,7 @@
 		<ons-list-item modifier="tappable" ng-click="acao('observacao')" ng-show="(txtobservacao != undefined) && (txtobservacao != '')" style="padding: 20px;">
 		<ons-row>
 			<ons-col>
-			<div style="line-height: normal; "><ons-icon icon="fa-comment" style="font-size=10px"></ons-icon> {{txtobservacao}}<br></div>
+			<div style="line-height: normal; "><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;"></ons-icon> {{txtobservacao}}<br></div>
 			</ons-col>
     	</ons-row>   
 		</ons-list-item>
@@ -137,7 +137,7 @@
             <ons-col>
                 <section>
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
-				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" ></ons-icon> {{foto.observacao}} - {{foto.url}}</p>
+				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;" ></ons-icon> {{foto.observacao}}</p>
                 </section>
 				<button class="button" ng-click="acao('observacao', $index + 1)"> <ons-icon icon="fa-comment" ></ons-icon>
 			    Registrar/Alterar Observação</button>
