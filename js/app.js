@@ -455,7 +455,7 @@ app.factory('AboutData', function()
 
 		var fsSuccess = function(arquivo) {
 			localStorage.setItem(arquivo.name, 'true');
-			//alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
+			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
 			lefotos(arquivo.name);
 		}
 		
