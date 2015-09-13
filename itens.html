@@ -137,6 +137,7 @@
             <ons-col>
                 <section>
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
+				<p>{{foto.url}}</p>
 				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;" ></ons-icon> {{foto.observacao}}</p>
                 </section>
 				<button class="button" ng-click="acao('observacao', $index + 1)"> <ons-icon icon="fa-comment" ></ons-icon>
