@@ -539,7 +539,7 @@ app.factory('AboutData', function()
 
 
 			var fotoURL = fileEntry.nativeURL;
-			var foto = {url: fotoURL ,observacao:observacao_foto};
+			var foto = {url: fotoURL ,observacao: observacao_foto};
 			$scope.fotos.push(foto);
 			$scope.$apply();
 		}
@@ -560,11 +560,17 @@ app.factory('AboutData', function()
 	$scope.sufixo = page.options.sufixo;
 	$scope.obs_foto_num = page.options.obs_foto_num;
 	var chave_observacao = '';
-	if ($scope.sufixo == undefined) 
+	if ($scope.url_foto == undefined) 
 		chave_observacao = $scope.secaoPai.codigo + "_obs";
-	else
-		chave_observacao = $scope.secaoPai.codigo + $scope.sufixo;
-	
+	else {
+			if ($scope.url_foto.indexOf("foto_1.jpg") > -1)
+				chave_observacao = $scope.secaoPai.codigo + "_obs_foto_1";
+			if ($scope.url_foto.indexOf("foto_2.jpg") > -1)
+				chave_observacao = $scope.secaoPai.codigo + "_obs_foto_2";
+			if ($scope.url_foto.indexOf("foto_3.jpg") > -1)
+				chave_observacao = $scope.secaoPai.codigo + "_obs_foto_3";
+	}
+
 	if (localStorage.getItem(chave_observacao) != undefined)
 		$scope.observacao = localStorage.getItem(chave_observacao);
 	
