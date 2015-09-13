@@ -533,10 +533,8 @@ app.factory('AboutData', function()
 
 	$scope.gravaobservacao = function() {
 		localStorage.setItem(chave_observacao, $scope.observacao);
-		$scope.MeuNavigator.popPage();
-		
 		$scope.MeuNavigator.popPage({onTransitionEnd : function() {
-			$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'none' } )
+			$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'none' } );
 		}});
 	}
 
