@@ -515,12 +515,12 @@ app.factory('AboutData', function()
 	$scope.url_foto = page.options.url_foto;
 	$scope.sufixo = page.options.sufixo;
 	var chave_observacao = '';
-	if ($scope.sufixo != undefined) 
+	if ($scope.sufixo == undefined) 
 		chave_observacao = $scope.secaoPai.codigo + "_obs";
 	else
 		chave_observacao = $scope.secaoPai.codigo + $scope.sufixo;
 	
-	if (localStorage.getItem(chave_observacao) == undefined)
+	if (localStorage.getItem(chave_observacao) != undefined)
 		$scope.observacao = localStorage.getItem(chave_observacao);
 	
 	
