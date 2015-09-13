@@ -453,15 +453,15 @@ app.factory('AboutData', function()
 		var leufoto = function(fileEntry) {
 			
 			var observacao_foto
-			if (file.name.indexOf("foto_1.jpg") > -1) {
-					observacao_foto = chave_obs_foto1
-				}
-				if (file.name.indexOf("foto_2.jpg") > -1) {
-					observacao_foto = chave_obs_foto2
-				}
-				if (file.name.indexOf("foto_3.jpg") > -1) {
-					observacao_foto = chave_obs_foto3
-				}
+			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
+				observacao_foto = chave_obs_foto1
+			}
+			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
+				observacao_foto = chave_obs_foto2
+			}
+			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
+				observacao_foto = chave_obs_foto3
+			}
 			
 			
 			var fotoURL = fileEntry.nativeURL;
