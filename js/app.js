@@ -512,8 +512,8 @@ app.factory('AboutData', function()
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
-	$scope.url_foto = page.option.url_foto;
-	$scope.sufixo = page.option.sufixo;
+	$scope.url_foto = page.options.url_foto;
+	$scope.sufixo = page.options.sufixo;
 	var chave_observacao = '';
 	if ($scope.sufixo != undefined) 
 		chave_observacao = $scope.secaoPai.codigo + "_obs";
