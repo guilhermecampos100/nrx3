@@ -32,7 +32,7 @@
 		</ons-row>
 	</ons-list-item>
 	
-	<ons-list-header> <ons-icon icon="fa-comment"></ons-icon> Observação <span ng-show="obs_foto_num != undefined"> Foto {{obs_foto_num}}</span></ons-list-header>
+	<ons-list-header> <ons-icon icon="fa-comment"></ons-icon> Observação <span ng-show="(obs_foto_num != undefined) && obs_foto_num > 0"> Foto {{obs_foto_num}}</span></ons-list-header>
 	    <ons-list-item>
 		<ons-row>
 			<ons-col width="25%" style="padding: 10px 10px 10px 10px;"><img ng-src={{url_foto}}></ons-col>

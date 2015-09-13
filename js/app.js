@@ -141,6 +141,7 @@ app.factory('AboutData', function()
 
 	
     // SECOES Controller ****************************************
+	// **********************************************************
     app.controller('SecoesController', function($interval, $scope, $rootScope, $http, SecoesData) {
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
@@ -533,6 +534,11 @@ app.factory('AboutData', function()
 	$scope.gravaobservacao = function() {
 		localStorage.setItem(chave_observacao, $scope.observacao);
 		$scope.MeuNavigator.popPage();
+		
+		$scope.MeuNavigator.popPage({onTransitionEnd : function() {
+			$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'none' } )
+		}});
+		
 	}
 
 		
