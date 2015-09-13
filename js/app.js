@@ -486,15 +486,15 @@ app.factory('AboutData', function()
 		function apagafoto_acao(fileEntry) {
 			fileEntry.remove;
 			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
-				localStorage.setItem(chave_obs_foto1) = undefined;
+				localStorage.removeItem(chave_obs_foto1);
 				indice = 0;
 			}
 			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
-				localStorage.setItem(chave_obs_foto2) = undefined;
+				localStorage.removeItem(chave_obs_foto2);
 				indice = 1;
 			}
 			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
-				localStorage.setItem(chave_obs_foto3) = undefined;
+				localStorage.removeItem(chave_obs_foto3);
 				indice = 2;
 			}
 			$scope.fotos.splice(indice).
