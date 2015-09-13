@@ -484,24 +484,28 @@ app.factory('AboutData', function()
 		
 		// APAGA FOTO_ACAO
 		function apagafoto_acao(fileEntry) {
-			fileEntry.remove(;
-			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
-				localStorage.removeItem(chave_obs_foto1);
-				localStorage.removeItem(nomefoto1);
-				indice = 0;
+			fileEntry.remove(success, deuerro);
+			function success(entry) {			
+				if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
+					localStorage.removeItem(chave_obs_foto1);
+					localStorage.removeItem(nomefoto1);
+					indice = 0;
+				}
+				if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
+					localStorage.removeItem(chave_obs_foto2);
+					localStorage.removeItem(nomefoto2);
+					indice = 1;
+				}
+				if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
+					localStorage.removeItem(chave_obs_foto3);
+					localStorage.removeItem(nomefoto3);
+					indice = 2;
+				}
+				console.log("Removal succeeded");
+				$scope.fotos.splice(indice,1);
+				$scope.$apply();
 			}
-			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
-				localStorage.removeItem(chave_obs_foto2);
-				localStorage.removeItem(nomefoto2);
-				indice = 1;
-			}
-			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
-				localStorage.removeItem(chave_obs_foto3);
-				localStorage.removeItem(nomefoto3);
-				indice = 2;
-			}
-			$scope.fotos.splice(indice,1);
-			$scope.$apply();
+
 		}
 		
 		
