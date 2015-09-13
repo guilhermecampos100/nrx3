@@ -455,15 +455,15 @@ app.factory('AboutData', function()
 			var observacao_foto;
 			var indice;
 			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
-				observacao_foto = localStorage.get(chave_obs_foto1);
+				observacao_foto = localStorage.getItem(chave_obs_foto1);
 				indice = 0;
 			}
 			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
-				observacao_foto = localStorage.get(chave_obs_foto2);
+				observacao_foto = localStorage.getItem(chave_obs_foto2);
 				indice = 1;
 			}
 			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
-				observacao_foto = localStorage.get(chave_obs_foto3);
+				observacao_foto = localStorage.getItem(chave_obs_foto3);
 				indice = 2;
 			}
 			
