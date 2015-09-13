@@ -62,7 +62,7 @@
 
 	<ons-list-header>Ações</ons-list-header>
 	
-		<ons-list-item modifier="tappable" ng-click="acao('fotos')">
+		<ons-list-item modifier="tappable" ng-click="acao('fotos','')">
 		<ons-row>
 			<ons-col width=11%>
 				<span style="color: {{cor_icone_foto()}}">
@@ -75,7 +75,7 @@
 		</ons-row>
 	</ons-list-item>
 	
-	<ons-list-item modifier="tappable" ng-click="acao('gps')">
+	<ons-list-item modifier="tappable" ng-click="acao('gps','')">
 		<ons-row>
 			<ons-col width=11%>
 				<span style="color: {{cor_icone_gps()}}">
@@ -88,7 +88,7 @@
 		</ons-row>
 	</ons-list-item>	
 	
-	<ons-list-item modifier="tappable" ng-click="acao('observacao')">
+	<ons-list-item modifier="tappable" ng-click="acao('observacao','')">
 		<ons-row>
 			<ons-col width=11%>
 			 <span style="color: {{cor_icone_obs()}}">
@@ -105,7 +105,7 @@
 		<ons-list-header>Conteúdo</ons-list-header>
 		
 
-		<ons-list-item modifier="tappable" ng-click="acao('gps')" ng-show="latitude != undefined">
+		<ons-list-item modifier="tappable" ng-click="acao('gps','')" ng-show="latitude != undefined" style="padding: 10px;">
 		<ons-row>
 			<ons-col>
 			<div style="line-height: normal; "><h3>Geolocalização</h3>>Lat: {{latitude}} Lon: {{longitude}}<br></div>
@@ -118,7 +118,7 @@
 		<ons-list-item modifier="tappable" ng-click="acao('observacao')" ng-show="txtobservacao != undefined" style="padding: 10px;">
 		<ons-row>
 			<ons-col>
-			<div style="line-height: normal; "><h3>Observação</h3> {{txtobservacao}}<br></div>
+			<div style="line-height: normal; "><ons-icon icon="fa-comment" ></ons-icon> <h3> <ons-icon icon="fa-comment" ></ons-icon>Observação</h3> {{txtobservacao}}<br></div>
 			</ons-col>
     	</ons-row>   
 		</ons-list-item>
@@ -138,6 +138,8 @@
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
 				<p >fotoobs: {{foto.observacao}} - {{foto.url}}</p>
                 </section>
+				<button class="button" ng-click="acao('observacao', $index + 1)"> <ons-icon icon="fa-comment" ></ons-icon>
+			    Registrar/Alterar Observação</button>
             </ons-col>
         </ons-row>
         </div>

@@ -242,7 +242,8 @@ app.factory('AboutData', function()
     });
     
 	
-	// Itens Controller *********************************
+	// ITENS Controller *********************************
+	// **************************************************
     app.controller('ItensController', function($interval, $scope, $rootScope, $http) {
 		$scope.token = $rootScope.tokenGlobal;
 		var page = MeuNavigator.getCurrentPage();
@@ -250,17 +251,75 @@ app.factory('AboutData', function()
 		$scope.txtobservacao = "";
 		
 		var chave_observacao = $scope.secaoPai.codigo + "_obs";
+		var chave_obs_foto1 = $scope.secaoPai.codigo + "_obs_foto_1";
+		var chave_obs_foto2 = $scope.secaoPai.codigo + "_obs_foto_2";
+		var chave_obs_foto3 = $scope.secaoPai.codigo + "_obs_foto_3";
+		
+		
 		var chave_latitude = $scope.secaoPai.codigo + "_latitude";
 		var chave_longitude = $scope.secaoPai.codigo + "_longitude";
 		var	nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
 		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
 		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
 			
+		
+		// VERIFICA VALOR CONFORMIDADE
+		$scope.verificavalor = function() {
+			localStorage.setItem($scope.secaoPai.codigo, $scope.conformidade);	
+		}
+		
+		
+		//ACAO
+		$scope.acao = function(acao, codigo) { 
+			if (acao == 'observacao') {
+				var suf = '_obs_foto_' + codigo;
+				var url = $scope.fotos[codigo - 1].url;
+				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, animation: 'slide'});	
+			}
+			else if (acao == 'fotos') {
+				$scope.tirafoto();
+			}
+			else if (acao == 'gps') {
+				$scope.registragps();
+			}
+			else
+				alert(acao);
+		}
+
+		
+		// NAVEGA PARA SECOES?
+        $scope.showDetail = function(index) {
+			var secaoPai = $scope.secoes[index];
+			$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: $scope.secaoPai, animation: 'slide'});
+	
+        }
+		 
+		 
+		$scope.VoltaTopo = function(index) {
 			
+			if ($rootScope.tokenGlobal == '55555')
+				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
+			if ($rootScope.tokenGlobal == '66666')
+				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
+
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+		}		
+
+        // OBSERVACAO		
 		if (localStorage.getItem(chave_observacao) != undefined) {
 			$scope.txtobservacao = localStorage.getItem(chave_observacao);
 			$scope.$apply();
 		}
+	
+		// COR ICONE OBSERVACAO
+		$scope.cor_icone_obs = function() {
+			if (localStorage.getItem(chave_observacao) != undefined)
+				$scope.cor_obs = "#1284ff";
+			else
+				$scope.cor_obs = "#000000";
+			return $scope.cor_obs;
+		};
+
 		
 		// COR ICONE GPS
 		$scope.cor_icone_gps = function() {
@@ -270,14 +329,7 @@ app.factory('AboutData', function()
 				return "#000000";
 		};
 		
-		// COR ICONE OBSERVACAO
-		$scope.cor_icone_obs = function() {
-			if (localStorage.getItem(chave_observacao) != undefined)
-				$scope.cor_obs = "#1284ff";
-			else
-				$scope.cor_obs = "#000000";
-			return $scope.cor_obs;
-		};
+
 		
 		// COR ICONE FOTO
 		$scope.cor_icone_foto = function() {
@@ -324,42 +376,6 @@ app.factory('AboutData', function()
 		
 		$scope.legps();
 
-		$scope.verificavalor = function() {
-			localStorage.setItem($scope.secaoPai.codigo, $scope.conformidade);	
-		}
-		
-		$scope.acao = function(acao) { 
-			if (acao == 'observacao') {
-				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, animation: 'slide'});	
-			}
-			else if (acao == 'fotos') {
-				$scope.tirafoto();
-			}
-			else if (acao == 'gps') {
-				$scope.registragps();
-			}
-			else
-				alert(acao);
-		}
-
-		
-        $scope.showDetail = function(index) {
-			var secaoPai = $scope.secoes[index];
-			$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: $scope.secaoPai, animation: 'slide'});
-	
-        }
-		 
-		$scope.VoltaTopo = function(index) {
-			
-			if ($rootScope.tokenGlobal == '55555')
-				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
-			if ($rootScope.tokenGlobal == '66666')
-				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
-
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
-		}
-		
-		
 		// TIRA FOTO
 		var imageURI;
 		var fs;
@@ -436,8 +452,20 @@ app.factory('AboutData', function()
 		
 		var leufoto = function(fileEntry) {
 			
+			var observacao_foto
+			if (file.name.indexOf("foto_1.jpg") > -1) {
+					observacao_foto = chave_obs_foto1
+				}
+				if (file.name.indexOf("foto_2.jpg") > -1) {
+					observacao_foto = chave_obs_foto2
+				}
+				if (file.name.indexOf("foto_3.jpg") > -1) {
+					observacao_foto = chave_obs_foto3
+				}
+			
+			
 			var fotoURL = fileEntry.nativeURL;
-			var foto = {url: fotoURL ,observacao:"teste observacao"};
+			var foto = {url: fotoURL ,observacao:observacao_foto};
 			$scope.fotos.push(foto);
 			$scope.$apply();
 					
@@ -474,13 +502,19 @@ app.factory('AboutData', function()
     });
 	
 	
-	// Observacao Controller
+	// OBSERVACAO Controller *********************************************************
+	// *******************************************************************************
     app.controller('ObservacaoController', function($interval, $scope, $rootScope, $http) {
 	$scope.token = $rootScope.tokenGlobal
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
-	
-	var chave_observacao = $scope.secaoPai.codigo + "_obs";
+	$scope.url_foto = page.option.url_foto;
+	$scope.sufixo = page.option.sufixo;
+	var chave_observacao = '';
+	if ($scope.sufixo != undefined) 
+		chave_observacao = $scope.secaoPai.codigo + "_obs";
+	else
+		chave_observacao = $scope.secaoPai.codigo + $scope.sufixo;
 	
 	if (localStorage.getItem(chave_observacao) != undefined)
 		$scope.observacao = localStorage.getItem(chave_observacao);
@@ -514,6 +548,9 @@ app.factory('AboutData', function()
 	
 	
 	// About: Detalhe Controller
+	//***********************************************************
+	//***********************************************************
+	//* NAO PRECISA DESTA PARTE, NAO FOI APAGADA AINDA PARA PEGAR EXEMPLOS
     app.controller('DetalheController', function($scope, $rootScope, $http, AboutData) {
 
         $scope.item = AboutData.selectedItem;
