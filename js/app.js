@@ -272,8 +272,10 @@ app.factory('AboutData', function()
 		//ACAO
 		$scope.acao = function(acao, codigo) { 
 			if (acao == 'observacao') {
-				var suf = '_obs_foto_' + codigo;
-				var url = $scope.fotos[codigo - 1].url;
+				if (codigo != '') {
+					var suf = '_obs_foto_' + codigo;
+					var url = $scope.fotos[codigo - 1].url;
+				}
 				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo - 1, animation: 'slide'});	
 			}
 			else if (acao == 'fotos') {
