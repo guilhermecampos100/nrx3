@@ -497,7 +497,7 @@ app.factory('AboutData', function()
 				localStorage.removeItem(chave_obs_foto3);
 				indice = 2;
 			}
-			$scope.fotos.splice(indice).
+			$scope.fotos.splice(indice);
 			$scope.$apply();
 		}
 		
