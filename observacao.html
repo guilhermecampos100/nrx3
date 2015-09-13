@@ -32,10 +32,10 @@
 		</ons-row>
 	</ons-list-item>
 	
-	<ons-list-header> <ons-icon icon="fa-comment"></ons-icon><span> Observação </span></ons-list-header>
-	    <ons-list-item style="padding: 20px 20px  0 0;">
+	<ons-list-header> <ons-icon icon="fa-comment"></ons-icon> Observação <span ng-show="obs_foto_num != undefined"> Foto {{obs_foto_num}}</span></ons-list-header>
+	    <ons-list-item>
 		<ons-row>
-			<ons-col width="25%"><img ng-src={{url_foto}}></ons-col>
+			<ons-col width="25%" style="padding: 10px 10px 10px 10px;"><img ng-src={{url_foto}}></ons-col>
 			<ons-col width="75%">
 				<textarea class="obs" name="observacao" ng-model="observacao" cols=40 rows=4></textarea><br>
 				<button class="button button--large" ng-click="gravaobservacao()">Registrar</button>

@@ -274,7 +274,7 @@ app.factory('AboutData', function()
 			if (acao == 'observacao') {
 				var suf = '_obs_foto_' + codigo;
 				var url = $scope.fotos[codigo - 1].url;
-				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, animation: 'slide'});	
+				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo - 1, animation: 'slide'});	
 			}
 			else if (acao == 'fotos') {
 				$scope.tirafoto();
@@ -514,6 +514,7 @@ app.factory('AboutData', function()
 	$scope.secaoPai = page.options.secaoPai;
 	$scope.url_foto = page.options.url_foto;
 	$scope.sufixo = page.options.sufixo;
+	$scope.obs_foto_num = page.options.obs_foto_num;
 	var chave_observacao = '';
 	if ($scope.sufixo == undefined) 
 		chave_observacao = $scope.secaoPai.codigo + "_obs";
