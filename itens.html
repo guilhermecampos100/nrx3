@@ -79,7 +79,8 @@
 		<ons-row>
 			<ons-col width=11%><center>
 				<span style="color: {{cor_icone_gps()}}">
-			       <ons-icon icon="fa-map-marker" size="20px" fixed-width="false"  style="color: back"> </ons-icon>
+			       <ons-icon icon="fa-map-marker" size="20px" fixed-width="false" ng-show="!obtendo_gps"> </ons-icon>
+				   <ons-icon icon="refresh" size="14px" spin="true" fixed-width="true" ng-show="obtendo_gps"></ons-icon>
 				</span></center>
 			</ons-col>
 			<ons-col width=89%>

@@ -250,6 +250,7 @@ app.factory('AboutData', function()
 		var page = MeuNavigator.getCurrentPage();
 		$scope.secaoPai = page.options.secaoPai;
 		$scope.txtobservacao = "";
+		$scope.obtendo_gps = false;
 		
 		var chave_observacao = $scope.secaoPai.codigo + "_obs";
 		var chave_obs_foto1 = $scope.secaoPai.codigo + "_obs_foto_1";
@@ -367,6 +368,8 @@ app.factory('AboutData', function()
 				window.localStorage.setItem(chave_longitude, position.coords.longitude  );
 				$scope.legps();
 			}	
+			$scope.obtendo_gps = true;
+			$scope.$apply();	
 			navigator.geolocation.getCurrentPosition(leugps, deuerro);
 		};
 	
@@ -374,6 +377,7 @@ app.factory('AboutData', function()
 		$scope.legps = function() {
 			$scope.latitude = window.localStorage.getItem(chave_latitude);
 			$scope.longitude = window.localStorage.getItem(chave_longitude);	
+			$scope.obtendo_gps = false;
 			$scope.$apply();			
 		};	
 		
@@ -438,6 +442,8 @@ app.factory('AboutData', function()
 		
 		var deuerro = function(error) {
 			alert("Erro código: " + error.code);
+			$scope.obtendo_gps = false;
+			$scope.$apply();	
 		};	
 
 		
