@@ -62,7 +62,7 @@
 
 	<ons-list-header>Ações</ons-list-header>
 	
-		<ons-list-item modifier="tappable" ng-click="acao('fotos',0)">
+		<ons-list-item modifier="tappable" ng-click="acao('fotos','')">
 		<ons-row>
 			<ons-col width=11%><center>
 				<span style="color: {{cor_icone_foto()}}">
@@ -140,9 +140,9 @@
 				<p>{{foto.url}}</p>
 				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;" ></ons-icon> {{foto.observacao}}</p>
                 </section>
-				<button class="button" ng-click="acao('observacao', $index + 1)"> <ons-icon icon="fa-comment" ></ons-icon>
+				<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon>
 			    Registrar/Alterar Observação</button><br><br>
-				<button class="button" ng-click="acao('trocarfoto', $index + 1)"> <ons-icon icon="fa-camera" ></ons-icon>
+				<button class="button" ng-click="acao('trocarfoto', foto.url)"> <ons-icon icon="fa-camera" ></ons-icon>
 			    Trocar Foto</button><br><br>
 				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', $index + 1)"> <ons-icon icon="fa-trash-o" ></ons-icon>
 			    Apagar Foto e Observação</button>

@@ -272,13 +272,12 @@ app.factory('AboutData', function()
 		
 		
 		//ACAO
-		$scope.acao = function(acao, codigo) { 
+		$scope.acao = function(acao, param_url) { 
 			if (acao == 'observacao') {
 				if (codigo != '') {
-					var suf = '_obs_foto_' + codigo;
-					var url = $scope.fotos[codigo - 1].url;
+					var url = param_url;
 				}
-				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, sufixo: suf, url_foto: url, obs_foto_num: codigo, animation: 'slide'});	
+				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, url_foto: url, animation: 'slide'});	
 			}
 			else if (acao == 'fotos') {
 				$scope.tirafoto(0);
@@ -287,10 +286,10 @@ app.factory('AboutData', function()
 				$scope.registragps();
 			}
 			else if (acao == 'trocarfoto') {
-				$scope.tirafoto(codigo);
+				$scope.tirafoto(param_url);
 			}
 			else if (acao == 'apagarfoto') {
-				$scope.apagafoto(codigo);
+				$scope.apagafoto(param_url);
 			}
 			else
 				alert(acao);
@@ -392,9 +391,9 @@ app.factory('AboutData', function()
 		// TIRA FOTO
 		var imageURI;
 		var fs;
-		var indice_foto;
-		$scope.tirafoto =  function(codigo) {
-			indice_foto = codigo;
+		var URL_foto;
+		$scope.tirafoto =  function(url) {
+			URL_foto = url;
 			navigator.camera.getPicture(tiroufoto, deuerro,
 			  {
 				quality: 50,
@@ -439,9 +438,16 @@ app.factory('AboutData', function()
 			
 		function gotFileEntry(fileEntry) {
 			var nomearquivo;
-			if (indice_foto == 0)
+			if (URL_foto == 0)
 				nomearquivo = pegaNomeProximaFoto();
-			else
+			else {
+				if (fileEntry.name.indexOf("foto_1.jpg") > -1)
+					nomearquivo = nomefoto1;
+				if (fileEntry.name.indexOf("foto_2.jpg") > -1)
+					nomearquivo = nomefoto2;
+				if (fileEntry.name.indexOf("foto_3.jpg") > -1)
+					nomearquivo = nomefoto3;				
+			}
 				nomearquivo = $scope.secaoPai.codigo + "_foto_" + indice_foto;
 			
 			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
@@ -557,7 +563,6 @@ app.factory('AboutData', function()
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
 	$scope.url_foto = page.options.url_foto;
-	$scope.sufixo = page.options.sufixo;
 	$scope.obs_foto_num = page.options.obs_foto_num;
 	var chave_observacao = '';
 	if ($scope.url_foto == undefined) 
