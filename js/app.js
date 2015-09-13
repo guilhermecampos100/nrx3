@@ -286,6 +286,12 @@ app.factory('AboutData', function()
 			else if (acao == 'gps') {
 				$scope.registragps();
 			}
+			else if (acao == 'trocarfoto') {
+				$scope.tirafoto(codigo);
+			}
+			else if (acao == 'apagarfoto') {
+				$scope.apagafoto(codigo);
+			}
 			else
 				alert(acao);
 		}
@@ -386,7 +392,9 @@ app.factory('AboutData', function()
 		// TIRA FOTO
 		var imageURI;
 		var fs;
-		$scope.tirafoto =  function() {
+		var indice_foto;
+		$scope.tirafoto =  function(codigo) {
+			indice_foto = codigo;
 			navigator.camera.getPicture(tiroufoto, deuerro,
 			  {
 				quality: 50,
@@ -430,7 +438,12 @@ app.factory('AboutData', function()
 		}
 			
 		function gotFileEntry(fileEntry) {
-			var nomearquivo = pegaNomeProximaFoto();
+			var nomearquivo;
+			if (indice_foto == 0)
+				nomearquivo = pegaNomeProximaFoto();
+			else
+				nomearquivo = $scope.secaoPai.codigo + "_foto_" + indice_foto;
+			
 			fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
 
@@ -447,6 +460,48 @@ app.factory('AboutData', function()
 		};	
 
 		
+	
+		// APAGA FOTO
+		function apagafoto(numfoto) {
+			
+		var	nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
+		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
+		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
+		
+			
+			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
+				var root = fileSystem.root;
+				var nomearquivo;
+				if (numfoto == 1) 
+					nomearquivo = nomefoto1;
+				if (numfoto == 2) 
+					nomearquivo = nomefoto2;
+				if (numfoto == 3) 
+					nomearquivo = nomefoto3;
+				root.getFile(nomearquivo, {create: false}, apagafoto_acao, null); 
+			}, deuerro);
+		}
+		
+		// APAGA FOTO_ACAO
+		function apagafoto_acao(fileEntry) {
+			fileEntry.remove;
+			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
+				localStorage.setItem(chave_obs_foto1) = undefined;
+				indice = 0;
+			}
+			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
+				localStorage.setItem(chave_obs_foto2) = undefined;
+				indice = 1;
+			}
+			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
+				localStorage.setItem(chave_obs_foto3) = undefined;
+				indice = 2;
+			}
+			$scope.fotos.splice(indice).
+			$scope.$apply();
+		}
+		
+		
 		// LE FOTOS
 		function lefotos(nomefoto) {
 			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
@@ -460,7 +515,6 @@ app.factory('AboutData', function()
 		$scope.fotos = [];
 		
 		var leufoto = function(fileEntry) {
-			
 			var observacao_foto;
 			var indice;
 			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
@@ -475,39 +529,13 @@ app.factory('AboutData', function()
 				observacao_foto = localStorage.getItem(chave_obs_foto3);
 				indice = 2;
 			}
-			
-			
+
+
 			var fotoURL = fileEntry.nativeURL;
 			var foto = {url: fotoURL ,observacao:observacao_foto};
 			$scope.fotos[indice] = foto;
 			$scope.$apply();
-					
-					
-			fileEntry.file(function(file) {
-				var reader = new FileReader();
-				reader.onload = function(evt) {
-					var img;
-					if (file.name.indexOf("foto_1.jpg") > -1) {
-						img = document.querySelector('#firstImage');
-					}
-					if (file.name.indexOf("foto_2.jpg") > -1) {
-						img = document.querySelector('#secondImage');
-					}
-					if (file.name.indexOf("foto_3.jpg") > -1) {
-						img = document.querySelector('#thirdImage');
-					}
-					img.src = evt.target.result;
-					
-
-					
-				};
-				reader.onerror = function(evt) {
-					alert('erro carregando o arquivo: ' + evt.target.error.code);
-				};
-				reader.readAsDataURL(file);
-			}, deuerro);
 		}
-		
 
 		lefotos(nomefoto1);
 		lefotos(nomefoto2);
