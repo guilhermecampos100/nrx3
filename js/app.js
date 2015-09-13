@@ -452,21 +452,25 @@ app.factory('AboutData', function()
 		
 		var leufoto = function(fileEntry) {
 			
-			var observacao_foto
+			var observacao_foto;
+			var indice;
 			if (fileEntry.name.indexOf("foto_1.jpg") > -1) {
 				observacao_foto = chave_obs_foto1
+				indice = 0;
 			}
 			if (fileEntry.name.indexOf("foto_2.jpg") > -1) {
 				observacao_foto = chave_obs_foto2
+				indice = 1;
 			}
 			if (fileEntry.name.indexOf("foto_3.jpg") > -1) {
 				observacao_foto = chave_obs_foto3
+				indice = 2;
 			}
 			
 			
 			var fotoURL = fileEntry.nativeURL;
 			var foto = {url: fotoURL ,observacao:observacao_foto};
-			$scope.fotos.push(foto);
+			$scope.fotos[indice] = foto;
 			$scope.$apply();
 					
 					
