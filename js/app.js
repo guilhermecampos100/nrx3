@@ -540,7 +540,7 @@ app.factory('AboutData', function()
 
 			var fotoURL = fileEntry.nativeURL;
 			var foto = {url: fotoURL ,observacao:observacao_foto};
-			$scope.fotos[indice] = foto;
+			$scope.fotos.push(foto);
 			$scope.$apply();
 		}
 
