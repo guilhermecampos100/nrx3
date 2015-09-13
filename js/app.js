@@ -444,7 +444,7 @@ app.factory('AboutData', function()
 			else
 				nomearquivo = $scope.secaoPai.codigo + "_foto_" + indice_foto;
 			
-			fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
+			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
 
 		var fsSuccess = function(arquivo) {
