@@ -462,7 +462,7 @@ app.factory('AboutData', function()
 		
 	
 		// APAGA FOTO
-		function apagafoto(numfoto) {
+		$scope.tirafoto = function(numfoto) {
 			
 		var	nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
 		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
