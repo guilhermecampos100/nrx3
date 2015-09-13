@@ -448,7 +448,6 @@ app.factory('AboutData', function()
 				if (fileEntry.name.indexOf("foto_3.jpg") > -1)
 					nomearquivo = nomefoto3;				
 			}
-				nomearquivo = $scope.secaoPai.codigo + "_foto_" + indice_foto;
 			
 			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
 		}
