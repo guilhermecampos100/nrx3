@@ -274,7 +274,7 @@ app.factory('AboutData', function()
 		//ACAO
 		$scope.acao = function(acao, param_url) { 
 			if (acao == 'observacao') {
-				if (codigo != '') {
+				if (param_url != '') {
 					var url = param_url;
 				}
 				$scope.MeuNavigator.pushPage('observacao.html', {secaoPai: $scope.secaoPai, url_foto: url, animation: 'slide'});	
@@ -563,7 +563,6 @@ app.factory('AboutData', function()
 	var page = MeuNavigator.getCurrentPage();
 	$scope.secaoPai = page.options.secaoPai;
 	$scope.url_foto = page.options.url_foto;
-	$scope.obs_foto_num = page.options.obs_foto_num;
 	var chave_observacao = '';
 	if ($scope.url_foto == undefined) 
 		chave_observacao = $scope.secaoPai.codigo + "_obs";
