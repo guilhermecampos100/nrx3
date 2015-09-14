@@ -450,6 +450,7 @@ app.factory('AboutData', function()
 				if (URL_foto.indexOf("foto_3.jpg") > -1)
 					nomearquivo = nomefoto3;
 				
+				$scope.fotos = [];
 				window.cache.clear(cachesuccess, deuerro);
 				// limpa o cache para evitar de mostrar a foto antiga
 			}
@@ -520,6 +521,7 @@ app.factory('AboutData', function()
 					indice = 2;
 				}
 				window.cache.clear(cachesuccess, deuerro);
+				$scope.fotos = [];
 				console.log("Removal succeeded");
 				$scope.fotos.splice(indice,1);
 				$scope.$apply();
@@ -528,7 +530,7 @@ app.factory('AboutData', function()
 		}
 		
 		 var cachesuccess = function(status) {
-            alert('Cache clear sucesso - Message: ' + status);
+            console.log('Cache clear sucesso - Message: ' + status);
         }
 		
 		// LE FOTOS
