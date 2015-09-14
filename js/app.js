@@ -455,9 +455,14 @@ app.factory('AboutData', function()
 				$scope.fotos = [];
 				fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
 				window.cache.clear(cachesuccess, deuerro);
-				lefotos(nomefoto1);
-				lefotos(nomefoto2);
-				lefotos(nomefoto3);					
+				
+				// so le os arquivos que nao estao sendo gravador, pois este ja chamara o lefotos na subrotina fsSuccess do moveTo 
+				if (nomearquivo != nomefoto1) 
+					lefotos(nomefoto1);
+				if (nomearquivo != nomefoto2) 
+					lefotos(nomefoto2);
+				if (nomearquivo != nomefoto3) 
+					lefotos(nomefoto3);					
 
 				// limpa o cache para evitar de mostrar a foto antiga
 			}
