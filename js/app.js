@@ -289,7 +289,10 @@ app.factory('AboutData', function()
 				$scope.tirafoto(param_url);
 			}
 			else if (acao == 'apagarfoto') {
-				$scope.apagafoto(param_url);
+				var result = confirm("Confirma deleção?");
+				if (result) {
+					$scope.apagafoto(param_url);
+				}
 			}
 			else
 				alert(acao);
