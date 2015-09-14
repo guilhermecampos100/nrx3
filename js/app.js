@@ -435,21 +435,34 @@ app.factory('AboutData', function()
 				return nomefoto3;
 			}
 		}
-			
+		
+
+		// MOVE A FOTO PARA O DIRETORIO PERMANENTE		
 		function gotFileEntry(fileEntry) {
 			var nomearquivo;
 			if (URL_foto == 0)
 				nomearquivo = pegaNomeProximaFoto();
 			else {
-				if (fileEntry.name.indexOf("foto_1.jpg") > -1)
+				if (URL_foto.indexOf("foto_1.jpg") > -1)
 					nomearquivo = nomefoto1;
-				if (fileEntry.name.indexOf("foto_2.jpg") > -1)
+				if (URL_foto.indexOf("foto_2.jpg") > -1)
 					nomearquivo = nomefoto2;
-				if (fileEntry.name.indexOf("foto_3.jpg") > -1)
-					nomearquivo = nomefoto3;				
+				if (URL_foto.indexOf("foto_3.jpg") > -1)
+					nomearquivo = nomefoto3;
+				
+				window.cache.clear(cachesuccess, deuerro);
+				// limpa o cache para evitar de mostrar a foto antiga
 			}
 			
+			
+			// ++++++++
+			//fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
+			//localStorage.setItem(nomearquivo, fileEntry.name);
+			
+			
 			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
+
+			
 		}
 
 		var fsSuccess = function(arquivo) {
@@ -506,6 +519,7 @@ app.factory('AboutData', function()
 					localStorage.removeItem(nomefoto3);
 					indice = 2;
 				}
+				window.cache.clear(cachesuccess, deuerro);
 				console.log("Removal succeeded");
 				$scope.fotos.splice(indice,1);
 				$scope.$apply();
@@ -513,6 +527,9 @@ app.factory('AboutData', function()
 
 		}
 		
+		 var cachesuccess = function(status) {
+            alert('Cache clear sucesso - Message: ' + status);
+        }
 		
 		// LE FOTOS
 		function lefotos(nomefoto) {

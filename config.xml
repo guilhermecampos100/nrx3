@@ -10,7 +10,7 @@
 	</gap:config-file>
 	
 	
-    <name>NRX3 1.91 </name>
+    <name>NRX3 1.92 </name>
 	<icon src="icon.png" />
     <description>
     NRX3
@@ -29,5 +29,6 @@
     <gap:plugin name="org.apache.cordova.core.camera" />
 	<gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
 	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+	<gap:plugin name="com.sharinglabs.cordova.plugin.cache" version="1.0.0" />
 
 </widget>
