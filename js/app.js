@@ -482,18 +482,21 @@ app.factory('AboutData', function()
 		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
 		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
 		
+		var filename = numfoto.split('/').pop();
+		var filename2 = numfoto.substr(numfoto.lastIndexOf("/")+1);	
 			
-			window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
-				var root = fileSystem.root;
-				var nomearquivo;
-				if (numfoto == 1) 
-					nomearquivo = nomefoto1;
-				if (numfoto == 2) 
-					nomearquivo = nomefoto2;
-				if (numfoto == 3) 
-					nomearquivo = nomefoto3;
-				root.getFile(nomearquivo, {create: false}, apagafoto_acao, null); 
-			}, deuerro);
+			
+		window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
+			var root = fileSystem.root;
+			var nomearquivo;
+			if (numfoto == 1) 
+				nomearquivo = nomefoto1;
+			if (numfoto == 2) 
+				nomearquivo = nomefoto2;
+			if (numfoto == 3) 
+				nomearquivo = nomefoto3;
+			root.getFile(filename, {create: false}, apagafoto_acao, null); 
+		}, deuerro);
 		}
 		
 		// APAGA FOTO_ACAO
