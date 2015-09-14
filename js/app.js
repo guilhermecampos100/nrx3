@@ -451,19 +451,14 @@ app.factory('AboutData', function()
 					nomearquivo = nomefoto3;
 				
 				$scope.fotos = [];
+				lefotos(nomefoto1);
+				lefotos(nomefoto2);
+				lefotos(nomefoto3);					
 				window.cache.clear(cachesuccess, deuerro);
 				// limpa o cache para evitar de mostrar a foto antiga
 			}
-			
-			
-			// ++++++++
-			//fileEntry.copyTo(fs.root, nomearquivo , fsSuccess, deuerro);
-			//localStorage.setItem(nomearquivo, fileEntry.name);
-			
-			
 			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
 
-			
 		}
 
 		var fsSuccess = function(arquivo) {
@@ -522,9 +517,10 @@ app.factory('AboutData', function()
 				}
 				window.cache.clear(cachesuccess, deuerro);
 				$scope.fotos = [];
-				console.log("Removal succeeded");
-				$scope.fotos.splice(indice,1);
-				$scope.$apply();
+				lefotos(nomefoto1);
+				lefotos(nomefoto2);
+				lefotos(nomefoto3);	
+				console.log("Apagou foto com sucesso.");
 			}
 
 		}
