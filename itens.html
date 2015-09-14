@@ -62,48 +62,49 @@
 
 	<ons-list-header>Ações</ons-list-header>
 	
-		<ons-list-item modifier="tappable" ng-click="acao('fotos','')">
-		<ons-row>
-			<ons-col width=11%><center>
-				<span style="color: {{cor_icone_foto()}}">
-			    <ons-icon icon="fa-camera" size="20px" fixed-width="false">	</ons-icon>
-				</span></center>
-			</ons-col>
-			<ons-col width=89%>
-					Registrar fotos
-			</ons-col>						
-		</ons-row>
-	</ons-list-item>
-	
-	<ons-list-item modifier="tappable" ng-click="acao('gps','')">
-		<ons-row>
-			<ons-col width=11%><center>
-				<span style="color: {{cor_icone_gps()}}">
-			       <ons-icon icon="fa-map-marker" size="20px" fixed-width="false" ng-show="!obtendo_gps"> </ons-icon>
-				   <ons-icon icon="refresh" size="14px" spin="true" fixed-width="true" ng-show="obtendo_gps"></ons-icon>
-				</span></center>
-			</ons-col>
-			<ons-col width=89%>
-					Marcar Geolocalização (GPS)
-			</ons-col>						
-		</ons-row>
-	</ons-list-item>	
-	
-	<ons-list-item modifier="tappable" ng-click="acao('observacao','')">
-		<ons-row>
-			<ons-col width=11%><center>
-			 <span style="color: {{cor_icone_obs()}}">
-			 <ons-icon icon="fa-comment"  size="20px" fixed-width="false" >
-			</ons-icon></center>
-			</span>
-			</ons-col>
-			<ons-col width=89%>
-			    Registrar/Alterar Observação
-			</ons-col>						
-		</ons-row>
-	</ons-list-item>	
+		<ons-list-item modifier="tappable" ng-click="acao('gps','')">
+			<ons-row>
+				<ons-col width=11%><center>
+					<span style="color: {{cor_icone_gps()}}">
+					   <ons-icon icon="fa-map-marker" size="20px" fixed-width="false" ng-show="!obtendo_gps"> </ons-icon>
+					   <ons-icon icon="refresh" size="14px" spin="true" fixed-width="true" ng-show="obtendo_gps"></ons-icon>
+					</span></center>
+				</ons-col>
+				<ons-col width=89%>
+						Marcar Geolocalização (GPS)
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>	
+		
+		<ons-list-item modifier="tappable" ng-click="acao('observacao','')">
+			<ons-row>
+				<ons-col width=11%><center>
+				 <span style="color: {{cor_icone_obs()}}">
+				 <ons-icon icon="fa-comment"  size="20px" fixed-width="false" >
+				</ons-icon></center>
+				</span>
+				</ons-col>
+				<ons-col width=89%>
+					Registrar/Alterar Observação
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>	
 
-		<ons-list-header>Conteúdo</ons-list-header>
+		<ons-list-item modifier="tappable" ng-click="acao('fotos','')">
+			<ons-row>
+				<ons-col width=11%><center>
+					<span style="color: {{cor_icone_foto()}}">
+					<ons-icon icon="fa-camera" size="20px" fixed-width="false">	</ons-icon>
+					</span></center>
+				</ons-col>
+				<ons-col width=89%>
+						Registrar nova foto
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>
+	
+	
+	<ons-list-header>Conteúdo</ons-list-header>
 		
 
 		<ons-list-item modifier="tappable" ng-click="acao('gps','')" ng-show="latitude != undefined" style="padding: 20px;">
@@ -137,15 +138,20 @@
             <ons-col>
                 <section>
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
-				<p>{{foto.url}}</p>
 				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;" ></ons-icon> {{foto.observacao}}</p>
                 </section>
-				<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon>
+			<!-- 	<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon>
 			    Registrar/Alterar Observação</button><br><br>
 				<button class="button" ng-click="acao('trocarfoto', foto.url)"> <ons-icon icon="fa-camera" ></ons-icon>
 			    Trocar Foto</button><br><br>
 				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', $index + 1)"> <ons-icon icon="fa-trash-o" ></ons-icon>
-			    Apagar Foto e Observação</button>
+			    Apagar Foto e Observação</button> -->
+				
+				<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon></button>
+				<button class="button" ng-click="acao('trocarfoto', foto.url)"> <ons-icon icon="fa-camera" ></ons-icon></button>
+				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', foto.url)"> <ons-icon icon="fa-trash-o" ></ons-icon></button>
+				 <br><br><span style="font-size: 8px">{{foto.url}}</span>
+				
             </ons-col>
         </ons-row>
         </div>
