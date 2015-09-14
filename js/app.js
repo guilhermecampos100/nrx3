@@ -440,8 +440,10 @@ app.factory('AboutData', function()
 		// MOVE A FOTO PARA O DIRETORIO PERMANENTE		
 		function gotFileEntry(fileEntry) {
 			var nomearquivo;
-			if (URL_foto == 0)
+			if (URL_foto == 0) {
 				nomearquivo = pegaNomeProximaFoto();
+				fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
+			}
 			else {
 				if (URL_foto.indexOf("foto_1.jpg") > -1)
 					nomearquivo = nomefoto1;
@@ -451,19 +453,21 @@ app.factory('AboutData', function()
 					nomearquivo = nomefoto3;
 				
 				$scope.fotos = [];
+				fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
+				window.cache.clear(cachesuccess, deuerro);
 				lefotos(nomefoto1);
 				lefotos(nomefoto2);
 				lefotos(nomefoto3);					
-				window.cache.clear(cachesuccess, deuerro);
+
 				// limpa o cache para evitar de mostrar a foto antiga
 			}
-			fileEntry.moveTo(fs.root, nomearquivo , fsSuccess, deuerro);
+
 
 		}
 
 		var fsSuccess = function(arquivo) {
 			localStorage.setItem(arquivo.name, 'true');
-			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
+			console.log("gravou " + arquivo.name + " - " + arquivo.fullPath);
 			lefotos(arquivo.name);
 		}
 		
@@ -476,26 +480,13 @@ app.factory('AboutData', function()
 		
 	
 		// APAGA FOTO
-		$scope.apagafoto = function(numfoto) {
-			
-		var	nomefoto1 = $scope.secaoPai.codigo + "_foto_1.jpg";
-		var	nomefoto2 = $scope.secaoPai.codigo + "_foto_2.jpg";
-		var	nomefoto3 = $scope.secaoPai.codigo + "_foto_3.jpg";		
-		
-		var filename = numfoto.split('/').pop();
-		var filename2 = numfoto.substr(numfoto.lastIndexOf("/")+1);	
-			
+		$scope.apagafoto = function(urlfoto) {
+
+		var nomearquivo = urlfoto.split('/').pop();
 			
 		window.requestFileSystem(LocalFileSystem.PERSISTENT,0, function(fileSystem) {
 			var root = fileSystem.root;
-			var nomearquivo;
-			if (numfoto == 1) 
-				nomearquivo = nomefoto1;
-			if (numfoto == 2) 
-				nomearquivo = nomefoto2;
-			if (numfoto == 3) 
-				nomearquivo = nomefoto3;
-			root.getFile(filename, {create: false}, apagafoto_acao, null); 
+			root.getFile(nomearquivo, {create: false}, apagafoto_acao, null); 
 		}, deuerro);
 		}
 		
