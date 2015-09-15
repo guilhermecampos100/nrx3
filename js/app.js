@@ -460,16 +460,16 @@ app.factory('AboutData', function()
 				window.cache.clear(cachesuccess, deuerro);
 				
 				// so le os arquivos que nao estao sendo gravador, pois este ja chamara o lefotos na subrotina fsSuccess do moveTo 
-				/* if (nomearquivo != nomefoto1) 
+				if (nomearquivo != nomefoto1) 
 					lefotos(nomefoto1);
 				if (nomearquivo != nomefoto2) 
 					lefotos(nomefoto2);
 				if (nomearquivo != nomefoto3) 
-					lefotos(nomefoto3);					 */
+					lefotos(nomefoto3);		
 
 				// limpa o cache para evitar de mostrar a foto antiga
 				// recarrega tela
-				$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'slide' } );
+
 			}
 
 
@@ -520,12 +520,12 @@ app.factory('AboutData', function()
 					indice = 2;
 				}
 				window.cache.clear(cachesuccess, deuerro);
-				/* $scope.fotos = [];
+				$scope.fotos = [];
 				lefotos(nomefoto1);
 				lefotos(nomefoto2);
-				lefotos(nomefoto3); */	
+				lefotos(nomefoto3); 
 				console.log("Apagou foto com sucesso.");
-				$scope.MeuNavigator.replacePage('itens.html', {secaoPai: $scope.secaoPai, animation : 'none' } );
+				$scope.$apply();
 				
 			}
 
