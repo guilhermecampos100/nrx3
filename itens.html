@@ -140,17 +140,22 @@
                 <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
 				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size=10px; color=#1284ff;" ></ons-icon> {{foto.observacao}}</p>
                 </section>
-			<!-- 	<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon>
-			    Registrar/Alterar Observação</button><br><br>
+				<!-- mostra os botoes com texto so na primeira foto pra testar qual opcao é melhor -->
+				<div ng-show="$index == 0">
+				<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon>
+			    Obs Foto</button><br><br>
 				<button class="button" ng-click="acao('trocarfoto', foto.url)"> <ons-icon icon="fa-camera" ></ons-icon>
 			    Trocar Foto</button><br><br>
 				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', $index + 1)"> <ons-icon icon="fa-trash-o" ></ons-icon>
-			    Apagar Foto e Observação</button> -->
+			    Apagar Foto/Obs</button>
+				</div>
 				
+				<div ng-show="$index != 0">
 				<button class="button" ng-click="acao('observacao', foto.url)"> <ons-icon icon="fa-comment" ></ons-icon></button>
 				<button class="button" ng-click="acao('trocarfoto', foto.url)"> <ons-icon icon="fa-camera" ></ons-icon></button>
 				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', foto.url)"> <ons-icon icon="fa-trash-o" ></ons-icon></button>
 				 <br><br><span style="font-size: 8px">{{foto.url}}</span>
+				</div>
 				
             </ons-col>
         </ons-row>
