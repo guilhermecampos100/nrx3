@@ -625,7 +625,7 @@ app.factory('AboutData', function()
 		$scope.token = $rootScope.tokenGlobal
 		$scope.checklist_secoes = [];
 
-		$scope.AtualizaBanco() {
+		$scope.AtualizaBanco = function() {
 			alert('to aqui');
 			puxabanco();
 		}
