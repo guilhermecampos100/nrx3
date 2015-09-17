@@ -86,30 +86,32 @@ var app = {
 		$scope.fazerLogin = function(token) {
 			$rootScope.tokenGlobal = token;
 			if(checkLogin(token)) {
-				openProtectedPage(token);
+				pegaSecaoPai(token);
 			}
 		}
 
-		function openProtectedPage(token) {
-			var secaoPai = {};
-			if (token == '55555')
-				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
-			if (token == '66666')
-				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
-			
-			$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});
-
-			
-		}
+	
+		function pegaSecaoPai(token) {
+			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + token + '&hora=' + Date.now();
+			$http({method: 'GET', url: urljson}).
+			success(function(data, status, headers, config) {
+				secaoPai = data.secaopai;
+				if secaoPai = {}  { 
+					alert('token '  + token +  'não encontrado')
+				}
+				else
+				{
+					$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});	
+				}
+			}).
+			error(function(data, status, headers, config) {
+				alert('erro no json ' +  data);
+			});	
+		};
 
 		function checkLogin(token) {
 			//temporariry return true;
-			// please write your own logic to detect user login;
-			if (token == '55555' || token == '66666')
-				return true;
-			else
-				return false;
-			// por enquanto retorna true se o token for 55555, depois tem que mudar para uma logica apropriada
+			return true;
 		}    
 	});
 
@@ -131,86 +133,77 @@ app.factory('AboutData', function()
 });
 
 	
-
-    app.controller('TrocaFotoController', function($interval, $scope, $rootScope, $http, AboutData) {
-	$scope.token = $rootScope.tokenGlobal
-	var page = MeuNavigator.getCurrentPage();
-	$scope.foto_garcom = page.options.foto_garcom;
-	$scope.nome_garcom = page.options.nome_garcom;
-	});
-
 	
     // SECOES Controller ****************************************
 	// **********************************************************
     app.controller('SecoesController', function($interval, $scope, $rootScope, $http, SecoesData) {
-	$scope.token = $rootScope.tokenGlobal
-	var page = MeuNavigator.getCurrentPage();
-	$scope.secaoPai = page.options.secaoPai;
-	
-	if ($scope.secaoPai == undefined)
-		$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
-
-	$scope.classelista = function(tipo) {
-		if (tipo == "secao")
-			return 'item lista_amarela ng-scope list__item ons-list-item-inner list__item--chevron';
-		else
-			return 'item item ng-scope list__item ons-list-item-inner list__item--chevron';
-	}
+		$scope.token = $rootScope.tokenGlobal
+		var page = MeuNavigator.getCurrentPage();
+		$scope.secaoPai = page.options.secaoPai;
 		
-	$scope.tem_foto = function(codigo) {
-		nomefoto1 = codigo + "_foto_1.jpg";
-		nomefoto2 = codigo + "_foto_2.jpg";
-		nomefoto3 = codigo + "_foto_3.jpg";
-		if (((localStorage.getItem(nomefoto1)) != undefined) || ((localStorage.getItem(nomefoto2)) != undefined) || ((localStorage.getItem(nomefoto3)) != undefined))
-			return true;
-		else
-			return false;
-	}	
+		if ($scope.secaoPai == undefined)
+			$scope.secaoPai =  {"codigo": "18", "descricao": "NR 18 - Segurança na Construção"};
 
-	$scope.tem_obs = function(codigo) {
-		var chave_observacao = codigo + "_obs";
-		if (localStorage.getItem(chave_observacao) != undefined)
-			return true;
-		else
-			return false;
-	}
-	
-	$scope.tem_gps = function(codigo) {
-		var chave_gps = codigo + "_latitude";
-		if (localStorage.getItem(chave_gps) != undefined)
-			return true;
-		else
-			return false;
-	}
-	
-	
-	
-    $scope.items = [];
+		$scope.classelista = function(tipo) {
+			if (tipo == "secao")
+				return 'item lista_amarela ng-scope list__item ons-list-item-inner list__item--chevron';
+			else
+				return 'item item ng-scope list__item ons-list-item-inner list__item--chevron';
+		}
+			
+		$scope.tem_foto = function(codigo) {
+			nomefoto1 = codigo + "_foto_1.jpg";
+			nomefoto2 = codigo + "_foto_2.jpg";
+			nomefoto3 = codigo + "_foto_3.jpg";
+			if (((localStorage.getItem(nomefoto1)) != undefined) || ((localStorage.getItem(nomefoto2)) != undefined) || ((localStorage.getItem(nomefoto3)) != undefined))
+				return true;
+			else
+				return false;
+		}	
 
-	$scope.teste = function(codigo) {
-		return localStorage.getItem(codigo)
-	}
-	
-	$scope.coricone = function(codigo) {
-		if ((localStorage.getItem(codigo)) == undefined)
-			return 'black';
-		if ((localStorage.getItem(codigo)) == 'sim')
-			return 'green';
-		if ((localStorage.getItem(codigo)) == 'nao')
-			return 'red';
-		if ((localStorage.getItem(codigo)) == 'nao se aplica')
-			return 'blue';		
-	}
-	
-	$scope.icone = function(codigo) {
-		if ((localStorage.getItem(codigo)) == undefined)
-			return 'fa-question';
-		else
-			return 'fa-check-square-o';
-	}
+		$scope.tem_obs = function(codigo) {
+			var chave_observacao = codigo + "_obs";
+			if (localStorage.getItem(chave_observacao) != undefined)
+				return true;
+			else
+				return false;
+		}
+		
+		$scope.tem_gps = function(codigo) {
+			var chave_gps = codigo + "_latitude";
+			if (localStorage.getItem(chave_gps) != undefined)
+				return true;
+			else
+				return false;
+		}
+		
+
+		$scope.items = [];
+
+		$scope.teste = function(codigo) {
+			return localStorage.getItem(codigo)
+		}
+		
+		$scope.coricone = function(codigo) {
+			if ((localStorage.getItem(codigo)) == undefined)
+				return 'black';
+			if ((localStorage.getItem(codigo)) == 'sim')
+				return 'green';
+			if ((localStorage.getItem(codigo)) == 'nao')
+				return 'red';
+			if ((localStorage.getItem(codigo)) == 'nao se aplica')
+				return 'blue';		
+		}
+		
+		$scope.icone = function(codigo) {
+			if ((localStorage.getItem(codigo)) == undefined)
+				return 'fa-question';
+			else
+				return 'fa-check-square-o';
+		}
 
 		function atualiza() {
-			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?pai=' + $scope.secaoPai.codigo + '&hora=' + Date.now();
+			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=' + $scope.secaoPai.codigo + '&hora=' + Date.now();
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
 				$scope.secoes = data.secoes;
@@ -220,18 +213,14 @@ app.factory('AboutData', function()
 			});	
 		};
 
-		atualiza();
-		
-        $scope.showDetail = function(index) {
+		$scope.showDetail = function(index) {
 			var secaoPai = $scope.secoes[index];
 			if (secaoPai.tipo == 'secao')
 				$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});
 			else
 				$scope.MeuNavigator.pushPage('itens.html', {secaoPai: secaoPai, animation: 'slide'});
-
-	
-        }
-		 
+		}
+			 
 		$scope.VoltaTopo = function(index) {
 			if ($rootScope.tokenGlobal == '55555')
 				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
@@ -240,6 +229,9 @@ app.factory('AboutData', function()
 
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 		}
+		
+		atualiza();	
+		
     });
     
 	
