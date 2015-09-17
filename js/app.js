@@ -95,7 +95,7 @@ var app = {
 			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + token + '&hora=' + Date.now();
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
-				secaoPai = data.secaopai;
+				secaoPai = data.secoes;
 				if (secaoPai.length == 0)  { 
 					alert('token '  + token +  'não encontrado')
 				}
