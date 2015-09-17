@@ -623,7 +623,7 @@ app.factory('AboutData', function()
 	// *******************************************************************************
     app.controller('ConfigController', function($interval, $scope, $rootScope, $http) {
 		$scope.token = $rootScope.tokenGlobal
-		$scope.checklist_secoes = [];
+		var checklist_secoes = [];
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -640,7 +640,7 @@ app.factory('AboutData', function()
 			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=99999&hora=' + Date.now();
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
-				$scope.checklist_secoes = data.secoes;
+				checklist_secoes = data.secoes;
 			}).
 			error(function(data, status, headers, config) {
 				alert('erro no json ' +  data);
