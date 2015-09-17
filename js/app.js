@@ -228,7 +228,7 @@ app.factory('AboutData', function()
 		
 		
 		$scope.PaginaConfig() {
-			MeuNavigator.pushPage('config.html', {animation: 'slide'});
+			$scope.MeuNavigator.pushPage('config.html', {animation: 'slide'});
 		}
 		
 		atualiza();	
