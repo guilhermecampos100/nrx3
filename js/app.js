@@ -227,7 +227,7 @@ app.factory('AboutData', function()
 		}
 		
 		
-		$scope.PaginaConfig() {
+		$scope.PaginaConfig = function() {
 			$scope.MeuNavigator.pushPage('config.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
 		}
 		
@@ -646,6 +646,20 @@ app.factory('AboutData', function()
 			});	
 		};
 		
+		
+		function criabanco() {
+			//db = window.sqlitePlugin.openDatabase({name: "my.db"});
+			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+			db.transaction(function(tx) {
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
+			});
+			db.transaction(function(tx) {
+			tx.executeSql("INSERT INTO test_table (foto) VALUES (?)", [imageURI], function(tx, res) {
+				console.log("insertId: " + res.insertId + " -- " + imageURI);
+				console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");		
+			});
+		});
+		};
 		
 	});
 
