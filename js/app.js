@@ -81,7 +81,7 @@ var app = {
     });
 
 	  // Login: Login Controller
-	app.controller('loginController', function($scope, $rootScope) {
+	app.controller('loginController', function($scope, $rootScope, $http) {
 
 		$scope.fazerLogin = function(token) {
 			$rootScope.tokenGlobal = token;
