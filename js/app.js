@@ -623,6 +623,7 @@ app.factory('AboutData', function()
 	// *******************************************************************************
     app.controller('ConfigController', function($interval, $scope, $rootScope, $http) {
 		$scope.token = $rootScope.tokenGlobal
+		$scope.checklist_secoes = [];
 
 		$scope.AtualizaBanco() {
 			alert('to aqui');
@@ -639,7 +640,7 @@ app.factory('AboutData', function()
 			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=99999&hora=' + Date.now();
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
-				$scope.secoes = data.secoes;
+				$scope.checklist_secoes = data.secoes;
 			}).
 			error(function(data, status, headers, config) {
 				alert('erro no json ' +  data);
@@ -654,8 +655,8 @@ app.factory('AboutData', function()
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
 			});
 			db.transaction(function(tx) {
-			tx.executeSql("INSERT INTO test_table (foto) VALUES (?)", [imageURI], function(tx, res) {
-				console.log("insertId: " + res.insertId + " -- " + imageURI);
+			tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.token, $checklist_secoes[0].codigo, $checklist_secoes[0].descricao, $checklist_secoes[0].secaopai], function(tx, res) {
+				console.log("insertId: " + res.insertId + " -- " + $checklist_secoes[0].codigo);
 				console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");		
 			});
 		});
