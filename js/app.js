@@ -101,7 +101,7 @@ var app = {
 				}
 				else
 				{
-					$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai, animation: 'slide'});	
+					$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai[0], animation: 'slide'});	
 				}
 			}).
 			error(function(data, status, headers, config) {
