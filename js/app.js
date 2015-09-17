@@ -101,6 +101,7 @@ var app = {
 				}
 				else
 				{
+					$rootScope.secaoPai = secaoPai[0];
 					$scope.MeuNavigator.pushPage('secoes.html', {secaoPai: secaoPai[0], animation: 'slide'});	
 				}
 			}).
@@ -222,12 +223,12 @@ app.factory('AboutData', function()
 		}
 			 
 		$scope.VoltaTopo = function(index) {
-			if ($rootScope.tokenGlobal == '55555')
-				secaoPai = 	{"codigo": "18","descricao": "NR 18 SEG NAS CONSTRUCOES","pai": "" };
-			if ($rootScope.tokenGlobal == '66666')
-				secaoPai = 	{"codigo": "32","descricao": "NR 32 SEG NOS HOSPITAIS","pai": "" };
-
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
+		}
+		
+		
+		$scope.PaginaConfig() {
+			MeuNavigator.pushPage('config.html', {animation: 'slide'});
 		}
 		
 		atualiza();	
@@ -617,6 +618,22 @@ app.factory('AboutData', function()
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: secaoPai, animation: 'slide'})
 	}
     });
+
+	// CONFIG Controller *********************************************************
+	// *******************************************************************************
+    app.controller('ConfigController', function($interval, $scope, $rootScope, $http) {
+		$scope.token = $rootScope.tokenGlobal
+
+		$scope.AtualizaBanco() {
+			alert('to aqui')
+		}
+
+		$scope.VoltaTopo = function(index) {
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
+		}
+	
+	});
+
 
 	
 	

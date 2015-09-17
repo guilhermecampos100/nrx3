@@ -1,0 +1,25 @@
+<ons-page ng-controller="ConfigController">
+    
+    <ons-toolbar>
+		<div class="left"><ons-back-button>Voltar</ons-back-button></div>
+		<div class="center">Configurações</div>
+		<div class="right">
+		<ons-toolbar-button ng-click="VoltaTopo()">
+		<ons-icon icon="fa-home"></ons-toolbar-button></div>
+	</ons-toolbar>
+
+	<ons-list-item modifier="chevron" ng-click="AtualizaBanco()">
+		<ons-row>
+			<ons-col>
+			    <section>
+				<span><ons-icon icon="fa-download" ></ons_icon></span>
+				Baixar BD Checklist
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	
+</ons-page>
+
