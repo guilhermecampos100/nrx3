@@ -96,7 +96,7 @@ var app = {
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
 				secaoPai = data.secaopai;
-				if secaoPai = {}  { 
+				if (secaoPai.length == 0)  { 
 					alert('token '  + token +  'não encontrado')
 				}
 				else
