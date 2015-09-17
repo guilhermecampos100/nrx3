@@ -228,7 +228,7 @@ app.factory('AboutData', function()
 		
 		
 		$scope.PaginaConfig() {
-			$scope.MeuNavigator.pushPage('config.html',{animation: 'slide'})
+			$scope.MeuNavigator.pushPage('config.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
 		}
 		
 		atualiza();	
@@ -625,13 +625,28 @@ app.factory('AboutData', function()
 		$scope.token = $rootScope.tokenGlobal
 
 		$scope.AtualizaBanco() {
-			alert('to aqui')
+			alert('to aqui');
+			puxabanco();
 		}
 
 		$scope.VoltaTopo = function(index) {
-			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'});
+
 		}
 	
+		
+		function puxabanco() {
+			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=99999&hora=' + Date.now();
+			$http({method: 'GET', url: urljson}).
+			success(function(data, status, headers, config) {
+				$scope.secoes = data.secoes;
+			}).
+			error(function(data, status, headers, config) {
+				alert('erro no json ' +  data);
+			});	
+		};
+		
+		
 	});
 
 
