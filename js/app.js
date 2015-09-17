@@ -626,8 +626,8 @@ app.factory('AboutData', function()
 		$scope.checklist_secoes = [];
 
 		$scope.AtualizaBanco = function() {
-			alert('to aqui');
 			puxabanco();
+			criabanco();
 		}
 
 		$scope.VoltaTopo = function(index) {
@@ -657,7 +657,8 @@ app.factory('AboutData', function()
 			db.transaction(function(tx) {
 			tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.token, $checklist_secoes[0].codigo, $checklist_secoes[0].descricao, $checklist_secoes[0].secaopai], function(tx, res) {
 				console.log("insertId: " + res.insertId + " -- " + $checklist_secoes[0].codigo);
-				console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");		
+				console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
+				alert(res.insertId);
 			});
 		});
 		};
