@@ -217,6 +217,7 @@ app.factory('AboutData', function()
 		};
 
 		atualizaoffline();
+		$scope.secoes2 = [];
 		function atualizaoffline () {
 			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
@@ -225,9 +226,11 @@ app.factory('AboutData', function()
 						for (var i=0; i < results.rows.length; i++){
 							row = results.rows.item(i);
 							console.log("row is " + JSON.stringify(row));
+							$scope.secoes2.push(row);
 							
 						}
-						$scope.secoes2 = results;
+						console.log("secoes2: " + JSON.stringify(row));
+						console.log("secoes2: " + row);
 					}
 				);
 			});
