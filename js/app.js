@@ -676,7 +676,6 @@ app.factory('AboutData', function()
 					$scope.statusconexao = "offline";
 				else
 					$scope.statusconexao = "online";
-				end if
 		}
 		
 		function puxabanco() {
