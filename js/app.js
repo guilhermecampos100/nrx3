@@ -661,8 +661,9 @@ app.factory('AboutData', function()
 			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
-				tx.executeSql("Select count(*) from checklist_secoes where token=?", [$scope.token], function(tx, results) {
-					$scope.contaregistros = results.rows.item(0)
+				tx.executeSql("Select count(*) as quantos from checklist_secoes where token=?", [$scope.token], function(tx, results) {
+					$scope.contaregistros = results.rows.item(0).quantos
+					$scope.$apply;
 				}
 				);
 			});
