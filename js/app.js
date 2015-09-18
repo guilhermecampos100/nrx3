@@ -654,7 +654,7 @@ app.factory('AboutData', function()
 			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
-				tx.executeSql("DELETE checklist_secoes");
+				tx.executeSql("DELETE from checklist_secoes");
 			});
 			db.transaction(function(tx) {
 				for (var i=0; i < checklist_secoes.length; i++) {
