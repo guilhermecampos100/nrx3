@@ -203,6 +203,8 @@ app.factory('AboutData', function()
 				return 'fa-check-square-o';
 		}
 
+		
+		
 		function atualiza() {
 			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=' + $scope.secaoPai.codigo + '&hora=' + Date.now();
 			$http({method: 'GET', url: urljson}).
@@ -214,6 +216,24 @@ app.factory('AboutData', function()
 			});	
 		};
 
+		atualizaoffline();
+		function atualizaoffline () {
+			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+			db.transaction(function(tx) {
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
+				tx.executeSql("Select * from checklist_secoes where token=? and secaopai=?", [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
+						for (var i=0; i < results.rows.length; i++){
+							row = results.rows.item(i);
+							console.log("row is " + JSON.stringify(row));
+							
+						}
+						$scope.secoes2 = results;
+					}
+				);
+			});
+		}
+		
+		
 		$scope.showDetail = function(index) {
 			var secaoPai = $scope.secoes[index];
 			if (secaoPai.tipo == 'secao')
