@@ -24,8 +24,15 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				<span>Online/Offline </span>
-				<input type=checkbox ng-model="offline" ng-click="verificaoffline()"> {{statusconexao}}
+				<span>Online/Offline  </span>
+				<input type=checkbox ng-model="offline2" ng-click="verificaoffline()"> - 
+				
+				<label class="checkbox">
+				  <input type="checkbox" ng-model="chkoffline" ng-click="verificaoffline()"> {{statusconexao}}
+					<div class="checkbox__checkmark"></div>
+					<span class="ons-checkbox-inner"></span>
+				 </label>
+				 
 				</ons-col>
                 </section>
 			</ons-col>						
