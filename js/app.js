@@ -656,16 +656,14 @@ app.factory('AboutData', function()
 			});
 			db.transaction(function(tx) {
 				for (var i=0; i < checklist_secoes.length; i++) {
-					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[0].codigo, checklist_secoes[0].descricao, checklist_secoes[0].secaopai], function(tx, res) {
-						console.log("insertId: " + res.insertId + " -- " + checklist_secoes[0].codigo);
-						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
-						alert(res.insertId);
-					}
+					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[0].codigo, checklist_secoes[0].descricao, checklist_secoes[0].secaopai], function(tx, res)
+					console.log("insertId: " + res.insertId + " -- " + checklist_secoes[0].codigo);
+					console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
+					alert(res.insertId);
 				}
 			});
 		});
-		};
-		
+	
 	});
 
 
