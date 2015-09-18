@@ -628,7 +628,6 @@ app.factory('AboutData', function()
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
-			criabanco();
 		}
 
 		$scope.VoltaTopo = function(index) {
@@ -642,6 +641,7 @@ app.factory('AboutData', function()
 			$http({method: 'GET', url: urljson}).
 			success(function(data, status, headers, config) {
 				checklist_secoes = data.secoes;
+				criabanco();
 			}).
 			error(function(data, status, headers, config) {
 				alert('erro no json ' +  data);
