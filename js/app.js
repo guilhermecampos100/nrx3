@@ -624,6 +624,7 @@ app.factory('AboutData', function()
     app.controller('ConfigController', function($interval, $scope, $rootScope, $http) {
 		$scope.token = $rootScope.tokenGlobal
 		var checklist_secoes = [];
+		$scope.conta_atualizando = 0;
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -659,7 +660,8 @@ app.factory('AboutData', function()
 					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[0].codigo, checklist_secoes[0].descricao, checklist_secoes[0].secaopai], function(tx, res) {
 						console.log("insertId: " + res.insertId + " -- " + checklist_secoes[0].codigo);
 						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
-						alert(res.insertId);
+						$scope.conta_atualizando = i + 1;
+						//alert(res.insertId);
 					});
 				}
 			});
