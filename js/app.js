@@ -654,15 +654,13 @@ app.factory('AboutData', function()
 			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
+				tx.executeSql("DELETE checklist_secoes");
 			});
 			db.transaction(function(tx) {
 				for (var i=0; i < checklist_secoes.length; i++) {
 					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[i].codigo, checklist_secoes[i].descricao, checklist_secoes[i].secaopai], function(tx, res) {
-						console.log("insertId: " + res.insertId);
-						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
-						$scope.conta_atualizando = i + 1;
+						$scope.conta_atualizando = res.insertId;
 						$scope.$apply();
-						//alert(res.insertId);
 					});
 				}
 			});
