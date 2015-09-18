@@ -8,7 +8,7 @@
 		<ons-icon icon="fa-home"></ons-toolbar-button></div>
 	</ons-toolbar>
 
-	<ons-list-item modifier="chevron" ng-click="AtualizaBanco()">
+	<ons-list-item modifier="tappable" ng-click="AtualizaBanco()">
 		<ons-row>
 			<ons-col>
 			    <section>
@@ -19,6 +19,9 @@
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
+	<button class="button" ng-click="AtualizaBanco()"><span><ons-icon icon="fa-download" ></ons_icon></span>
+		Baixar BD Checklist
+	</button>
 	
 	
 </ons-page>
