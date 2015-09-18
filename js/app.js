@@ -658,7 +658,7 @@ app.factory('AboutData', function()
 			db.transaction(function(tx) {
 				for (var i=0; i < checklist_secoes.length; i++) {
 					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[i].codigo, checklist_secoes[i].descricao, checklist_secoes[i].secaopai], function(tx, res) {
-						console.log("insertId: " + res.insertId + " -- " + checklist_secoes[i].codigo);
+						console.log("insertId: " + res.insertId);
 						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
 						$scope.conta_atualizando = i + 1;
 						$scope.$apply();
