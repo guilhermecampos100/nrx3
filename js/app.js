@@ -216,8 +216,7 @@ app.factory('AboutData', function()
 			});	
 		};
 
-		atualizaoffline();
-		$scope.secoes2 = [];
+
 		function atualizaoffline () {
 			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
@@ -225,12 +224,8 @@ app.factory('AboutData', function()
 				tx.executeSql("Select * from checklist_secoes where token=? and secaopai=?", [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
 						for (var i=0; i < results.rows.length; i++){
 							row = results.rows.item(i);
-							console.log("row is " + JSON.stringify(row));
-							$scope.secoes2.push(row);
-							
+							$scope.secoes.push(row);
 						}
-						console.log("secoes2: " + JSON.stringify(row));
-						console.log("secoes2: " + row);
 					}
 				);
 			});
@@ -254,7 +249,10 @@ app.factory('AboutData', function()
 			$scope.MeuNavigator.pushPage('config.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'})
 		}
 		
-		atualiza();	
+		if ($rootScope.offline)
+			atualizaoffline();	
+		else
+			atualiza();
 		
     });
     
@@ -657,7 +655,29 @@ app.factory('AboutData', function()
 			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, animation: 'slide'});
 
 		}
-	
+		
+		contaregistrobanco();
+		function contaregistrosbanco() {
+			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+			db.transaction(function(tx) {
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
+				tx.executeSql("Select count(*) from checklist_secoes where token=?", [], function(tx, result) {
+					$scope.contaregistros = results.row.item(0)
+				}
+				);
+			});
+		};
+		
+		
+		verificaoffline();
+		function verificaoffline() {
+				$rootScope.offline = $scope.offline;
+				if ($scope.offline)
+					$scope.statusconexao = "offline";
+				else
+					$scope.statusconexao = "online";
+				end if
+		}
 		
 		function puxabanco() {
 			var urljson = 'http://chamagar.com/dashboard/juridico/secoes.asp?token=' + $scope.token + '&pai=99999&hora=' + Date.now();

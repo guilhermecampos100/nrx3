@@ -13,7 +13,7 @@
 			<ons-col>
 			    <section>
 				<span><ons-icon icon="fa-download" ></ons_icon></span>
-				Baixar BD Checklist
+				Registros no banco de dados local: {{ contaregistros}}
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -24,8 +24,20 @@
 		Baixar BD Checklist
 	</button>
 	<div> Atualizando {{conta_atualizando}} </div>
+	
 	</center>
 	
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				<span>Online/Offline </span>
+				<input type=checkbox ng-model="offline" ng-click="verificaoffline()"> {{statusconexao}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
 
 	
 	
