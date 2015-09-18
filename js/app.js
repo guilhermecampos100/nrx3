@@ -660,10 +660,10 @@ app.factory('AboutData', function()
 						console.log("insertId: " + res.insertId + " -- " + checklist_secoes[0].codigo);
 						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
 						alert(res.insertId);
-					}
+					});
 				}
 			});
-		});
+		};
 	
 	});
 
