@@ -655,12 +655,13 @@ app.factory('AboutData', function()
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_secoes (token text, codigo text, descricao text, secaopai text)');
 			});
 			db.transaction(function(tx) {
-				for (var i=0; i < checklist_secoes.length; i++)
+				for (var i=0; i < checklist_secoes.length; i++) {
 					tx.executeSql("INSERT INTO checklist_secoes (token, codigo, descricao, secaopai) VALUES (?,?,?,?)", [$rootScope.tokenGlobal, checklist_secoes[0].codigo, checklist_secoes[0].descricao, checklist_secoes[0].secaopai], function(tx, res) {
 						console.log("insertId: " + res.insertId + " -- " + checklist_secoes[0].codigo);
 						console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
 						alert(res.insertId);
-				next
+					}
+				}
 			});
 		});
 		};
